@@ -1,5 +1,5 @@
 import React from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 //Material-UI
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -13,7 +13,7 @@ import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import theme from "./Theme";
-import Link from "@material-ui/core/Link";
+//import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles({
   toolbarMargin: {
@@ -30,7 +30,9 @@ const useStyles = makeStyles({
   tab: {
     fontWeight: "bold",
     fontSize: "1.3rem",
-    fontFamily: "Open Sans Condensed"
+    fontFamily: "Open Sans Condensed",
+    minWidth: 10,
+    margin: "0.8rem"
   },
   link: {
     margin: "0.5rem"
@@ -59,23 +61,44 @@ const Navbar = () => {
     <ElevationScroll>
       <AppBar position="fixed" color="primary">
         <Toolbar>
-          <Typography variant="h4" color="secondary" className={classes.title}>
-            Robert Peng
-          </Typography>
+          <Link to="/" >
+            <Typography
+              variant="h4"
+              color="secondary"
+              className={classes.title}
+            >
+              Robert Peng
+            </Typography>
+          </Link>
           <Tabs
             value={value}
             onChange={handleChange}
-            aria-label="simple tabs example"
+            aria-label="Tabs on Navbar"
             textColor="secondary"
-            indicatorColor="primary"
+            indicatorColor="secondary"
             className={classes.tabContainer}
             centered
           >
-            <Tab className={classes.tab} label="About Me" />
-            <Tab className={classes.tab} label="Projects" />
-            <Tab className={classes.tab} label="Contact" />
+            <Tab
+              className={classes.tab}
+              label="About Me"
+              component={Link}
+              to="/aboutme"
+            />
+            <Tab
+              className={classes.tab}
+              label="Projects"
+              component={Link}
+              to="/projects"
+            />
+            <Tab
+              className={classes.tab}
+              label="Contact"
+              component={Link}
+              to="/contact"
+            />
           </Tabs>
-          <Link
+          {/* <Link
             target="_blank"
             href="https://github.com/robertpengcode"
             className={classes.link}
@@ -101,7 +124,7 @@ const Navbar = () => {
             <IconButton>
               <EmailIcon />
             </IconButton>
-          </Link>
+          </Link> */}
         </Toolbar>
       </AppBar>
     </ElevationScroll>

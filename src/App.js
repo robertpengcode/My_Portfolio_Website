@@ -1,22 +1,26 @@
 import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from "./Navbar";
+import Home from "./Home";
+import AboutMe from "./AboutMe";
+import Projects from "./Projects";
+import Contact from "./Contact";
 //Material-UI
 import { ThemeProvider } from "@material-ui/styles";
-import theme from './Theme';
+import theme from "./Theme";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Navbar />
-      <h1>Hello Robert</h1>
-      {/* {[...new Array(200)]
-            .map(
-              () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
-            )
-            .join('\n')} */}
+      <BrowserRouter>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/aboutme" component={AboutMe} />
+          <Route exact path="/projects" component={Projects} />
+          <Route exact path="/contact" component={Contact} />
+        </Switch>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
