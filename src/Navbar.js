@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment, useEffect } from "react";
 import { Link } from "react-router-dom";
 //Material-UI
 import AppBar from "@material-ui/core/AppBar";
@@ -56,12 +56,21 @@ const Navbar = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  useEffect(() => {
+    if (window.location.pathname === "/" && value !== 0) {
+      setValue(0);
+    } else if (window.location.pathname === "/projects" && value !== 1) {
+      setValue(1);
+    } else if (window.location.pathname === "/contact" && value !== 2) {
+      setValue(2);
+    }
+  }, [value]);
 
   return (
-    <ElevationScroll>
-      <AppBar position="fixed" color="primary">
-        <Toolbar>
-          <Link to="/" >
+    <Fragment>
+      <ElevationScroll>
+        <AppBar position="fixed" color="primary">
+          <Toolbar>
             <Typography
               variant="h4"
               color="secondary"
@@ -69,36 +78,35 @@ const Navbar = () => {
             >
               Robert Peng
             </Typography>
-          </Link>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            aria-label="Tabs on Navbar"
-            textColor="secondary"
-            indicatorColor="secondary"
-            className={classes.tabContainer}
-            centered
-          >
-            <Tab
-              className={classes.tab}
-              label="About Me"
-              component={Link}
-              to="/aboutme"
-            />
-            <Tab
-              className={classes.tab}
-              label="Projects"
-              component={Link}
-              to="/projects"
-            />
-            <Tab
-              className={classes.tab}
-              label="Contact"
-              component={Link}
-              to="/contact"
-            />
-          </Tabs>
-          {/* <Link
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              aria-label="Tabs on Navbar"
+              textColor="secondary"
+              indicatorColor="secondary"
+              className={classes.tabContainer}
+              centered
+            >
+              <Tab
+                className={classes.tab}
+                label="About Me"
+                component={Link}
+                to="/"
+              />
+              <Tab
+                className={classes.tab}
+                label="Projects"
+                component={Link}
+                to="/projects"
+              />
+              <Tab
+                className={classes.tab}
+                label="Contact"
+                component={Link}
+                to="/contact"
+              />
+            </Tabs>
+            {/* <Link
             target="_blank"
             href="https://github.com/robertpengcode"
             className={classes.link}
@@ -125,9 +133,11 @@ const Navbar = () => {
               <EmailIcon />
             </IconButton>
           </Link> */}
-        </Toolbar>
-      </AppBar>
-    </ElevationScroll>
+          </Toolbar>
+        </AppBar>
+      </ElevationScroll>
+      <div className={classes.toolbarMargin}></div>
+    </Fragment>
   );
 };
 
