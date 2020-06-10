@@ -34,7 +34,7 @@ const useStyles = makeStyles({
     minWidth: 10,
     margin: "0.8rem"
   },
-  link: {
+  button: {
     margin: "0.5rem"
   }
 });
@@ -106,33 +106,23 @@ const Navbar = () => {
                 to="/contact"
               />
             </Tabs>
-            {/* <Link
-            target="_blank"
-            href="https://github.com/robertpengcode"
-            className={classes.link}
-          >
-            <IconButton>
+            <IconButton
+              target="_blank"
+              href="https://github.com/robertpengcode"
+              className={classes.button}
+            >
               <GitHubIcon />
             </IconButton>
-          </Link>
-          <Link
-            target="_blank"
-            href="https://www.linkedin.com/in/robert-jenpo-peng-0b1bbb49/"
-            className={classes.link}
-          >
-            <IconButton size="small">
+            <IconButton
+              target="_blank"
+              href="https://www.linkedin.com/in/robert-jenpo-peng-0b1bbb49/"
+              className={classes.button}
+            >
               <LinkedInIcon />
             </IconButton>
-          </Link>
-          <Link
-            target="_blank"
-            href="https://www.linkedin.com/in/robert-jenpo-peng-0b1bbb49/"
-            className={classes.link}
-          >
-            <IconButton>
+            <IconButton className={classes.button}>
               <EmailIcon />
             </IconButton>
-          </Link> */}
           </Toolbar>
         </AppBar>
       </ElevationScroll>
