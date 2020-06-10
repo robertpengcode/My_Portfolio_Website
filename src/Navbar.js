@@ -6,6 +6,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
+import ImportantDevicesIcon from "@material-ui/icons/ImportantDevices";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import EmailIcon from "@material-ui/icons/Email";
@@ -34,8 +35,17 @@ const useStyles = makeStyles({
     minWidth: 10,
     margin: "0.8rem"
   },
-  button: {
+  logo: {
+    width: 38,
+    height: 38,
+    color: "white"
+  },
+  iconButton: {
     margin: "0.5rem"
+  },
+  button: {
+    width: 35,
+    height: 35
   }
 });
 
@@ -71,6 +81,7 @@ const Navbar = () => {
       <ElevationScroll>
         <AppBar position="fixed" color="primary">
           <Toolbar>
+            <ImportantDevicesIcon className={classes.logo} />
             <Typography
               variant="h4"
               color="secondary"
@@ -109,19 +120,19 @@ const Navbar = () => {
             <IconButton
               target="_blank"
               href="https://github.com/robertpengcode"
-              className={classes.button}
+              className={classes.iconButton}
             >
-              <GitHubIcon />
+              <GitHubIcon className={classes.button} />
             </IconButton>
             <IconButton
               target="_blank"
               href="https://www.linkedin.com/in/robert-jenpo-peng-0b1bbb49/"
-              className={classes.button}
+              className={classes.iconButton}
             >
-              <LinkedInIcon />
+              <LinkedInIcon className={classes.button} />
             </IconButton>
-            <IconButton className={classes.button}>
-              <EmailIcon />
+            <IconButton className={classes.iconButton}>
+              <EmailIcon className={classes.button} />
             </IconButton>
           </Toolbar>
         </AppBar>
