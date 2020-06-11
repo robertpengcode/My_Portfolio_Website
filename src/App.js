@@ -7,6 +7,7 @@ import Contact from "./Contact";
 //Material-UI
 import { ThemeProvider } from "@material-ui/styles";
 import theme from "./Theme";
+import Footer from "./Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/projects" component={Projects} />
           <Route exact path="/contact" component={Contact} />
         </Switch>
+        <Footer />
       </BrowserRouter>
     </ThemeProvider>
   );

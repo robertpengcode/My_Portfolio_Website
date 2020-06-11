@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 //Material-UI
 import AppBar from "@material-ui/core/AppBar";
@@ -13,10 +13,12 @@ import EmailIcon from "@material-ui/icons/Email";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import theme from "./Theme";
-//import Link from "@material-ui/core/Link";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useTheme } from "@material-ui/core/styles";
+import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import MenuIcon from "@material-ui/icons/Menu";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   toolbarMargin: {
     ...theme.mixins.toolbar
   },
@@ -47,7 +49,7 @@ const useStyles = makeStyles({
     width: 35,
     height: 35
   }
-});
+}));
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -62,7 +64,12 @@ function ElevationScroll(props) {
 
 const Navbar = () => {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const theme = useTheme();
+  const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const [value, setValue] = useState(0);
+
+  const [openMenu, setOpenMenu] = useState(false);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -75,6 +82,34 @@ const Navbar = () => {
       setValue(2);
     }
   }, [value]);
+
+  const tabs = (
+    <Fragment>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        aria-label="Tabs on Navbar"
+        textColor="secondary"
+        indicatorColor="secondary"
+        className={classes.tabContainer}
+        centered
+      >
+        <Tab className={classes.tab} label="About Me" component={Link} to="/" />
+        <Tab
+          className={classes.tab}
+          label="Projects"
+          component={Link}
+          to="/projects"
+        />
+        <Tab
+          className={classes.tab}
+          label="Contact"
+          component={Link}
+          to="/contact"
+        />
+      </Tabs>
+    </Fragment>
+  );
 
   return (
     <Fragment>
@@ -89,34 +124,7 @@ const Navbar = () => {
             >
               Robert Peng
             </Typography>
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              aria-label="Tabs on Navbar"
-              textColor="secondary"
-              indicatorColor="secondary"
-              className={classes.tabContainer}
-              centered
-            >
-              <Tab
-                className={classes.tab}
-                label="About Me"
-                component={Link}
-                to="/"
-              />
-              <Tab
-                className={classes.tab}
-                label="Projects"
-                component={Link}
-                to="/projects"
-              />
-              <Tab
-                className={classes.tab}
-                label="Contact"
-                component={Link}
-                to="/contact"
-              />
-            </Tabs>
+            {matches ? null : tabs}
             <IconButton
               target="_blank"
               href="https://github.com/robertpengcode"
