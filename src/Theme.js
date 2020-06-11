@@ -12,6 +12,14 @@ const Theme = createMuiTheme({
   status: {
     danger: 'orange'
   },
+  typography: {
+    fontFamily: [
+      "Open Sans Condensed",
+      'Roboto',
+      'Arial',
+      'sans-serif',
+    ].join(','),
+  },
 })
 
 export default Theme
