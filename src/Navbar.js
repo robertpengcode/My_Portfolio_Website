@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   title: {
     margin: "1rem",
     fontWeight: "bold",
-    fontFamily: "Open Sans Condensed"
+    fontFamily: theme.typography.fontFamily,
   },
   tabContainer: {
     margin: "auto"
@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
   tab: {
     fontWeight: "bold",
     fontSize: "1.3rem",
-    fontFamily: "Open Sans Condensed",
+    fontFamily: theme.typography.fontFamily,
     minWidth: 10,
     margin: "0.8rem"
   },
@@ -114,7 +114,7 @@ const Navbar = () => {
   return (
     <Fragment>
       <ElevationScroll>
-        <AppBar position="fixed" color="primary">
+        <AppBar position="fixed" color="primary" >
           <Toolbar>
             <ImportantDevicesIcon className={classes.logo} />
             <Typography
