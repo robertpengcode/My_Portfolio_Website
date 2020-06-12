@@ -4,11 +4,11 @@ import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles(theme => ({
   paperContainer: {
-    backgroundImage: `url(laptopCoffee.jpg)`,
+    backgroundImage: `url(laptopCoffee2.jpg)`,
     height: "90vh",
     width: "100%",
     backgroundSize: "cover",
-    opacity: "0.5"
+    opacity: "0.7",
   }
 }));
 

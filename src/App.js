@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from "./Navbar";
 import Home from "./Home";
-import AboutMe from "./Home";
+import AboutMe from "./AboutMe";
 import Projects from "./Projects";
 import Contact from "./Contact";
 //Material-UI
