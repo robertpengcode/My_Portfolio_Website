@@ -76,10 +76,12 @@ const Navbar = () => {
   useEffect(() => {
     if (window.location.pathname === "/" && value !== 0) {
       setValue(0);
-    } else if (window.location.pathname === "/projects" && value !== 1) {
+    } else if (window.location.pathname === "/about" && value !== 1) {
       setValue(1);
-    } else if (window.location.pathname === "/contact" && value !== 2) {
+    } else if (window.location.pathname === "/projects" && value !== 2) {
       setValue(2);
+    } else if (window.location.pathname === "/contact" && value !== 2) {
+      setValue(3);
     }
   }, [value]);
 
@@ -94,7 +96,13 @@ const Navbar = () => {
         className={classes.tabContainer}
         centered
       >
-        <Tab className={classes.tab} label="About Me" component={Link} to="/" />
+        <Tab className={classes.tab} label="Home" component={Link} to="/" />
+        <Tab
+          className={classes.tab}
+          label="About Me"
+          component={Link}
+          to="/about"
+        />
         <Tab
           className={classes.tab}
           label="Projects"

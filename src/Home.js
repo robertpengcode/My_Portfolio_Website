@@ -12,11 +12,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const AboutMe = () => {
+const Home = () => {
   const classes = useStyles();
   return (
     <Paper elevation={0} className={classes.paperContainer}></Paper>
   );
 };
 
-export default AboutMe;
+export default Home;
