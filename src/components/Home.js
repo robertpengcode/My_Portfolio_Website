@@ -9,7 +9,8 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
     backgroundSize: "cover",
     opacity: "0.5"
-  }
+  },
+  
 }));
 
 const Home = () => {

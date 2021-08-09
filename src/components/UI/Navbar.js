@@ -17,15 +17,34 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import MenuIcon from "@material-ui/icons/Menu";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
 
 const useStyles = makeStyles(theme => ({
   toolbarMargin: {
     ...theme.mixins.toolbar
   },
+  appBar: {
+    [theme.breakpoints.down("md")]: {
+      height: "4rem"
+    },
+    [theme.breakpoints.down("xs")]: {
+      height: "3rem"
+    }
+  },
   title: {
     margin: "1rem",
     fontWeight: "bold",
     fontFamily: theme.typography.fontFamily,
+    [theme.breakpoints.down("md")]: {
+      margin: "0.75rem",
+      fontSize: "2rem"
+    },
+    [theme.breakpoints.down("xs")]: {
+      margin: "0.5rem",
+      fontSize: "1.2rem"
+    }
   },
   tabContainer: {
     margin: "auto"
@@ -38,9 +57,17 @@ const useStyles = makeStyles(theme => ({
     margin: "0.8rem"
   },
   logo: {
-    width: 38,
-    height: 38,
-    color: "white"
+    width: "3rem",
+    height: "3rem",
+    color: "white",
+    [theme.breakpoints.down("md")]: {
+      width: "2.5rem",
+      height: "2.5rem"
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "1.5rem",
+      height: "1.5rem"
+    }
   },
   iconButton: {
     margin: "0.5rem"
@@ -48,6 +75,25 @@ const useStyles = makeStyles(theme => ({
   button: {
     width: 35,
     height: 35
+  },
+  drawerIconContainer: {
+    marginLeft: "auto"
+  },
+  drawerIcon: {
+    height: "2rem",
+    width: "2rem"
+  },
+  drawer: {
+    backgroundColor: theme.palette.primary.main
+  },
+  drawerItem: {
+    fontWeight: "bold",
+    fontSize: "1.3rem",
+    fontFamily: theme.typography.fontFamily,
+    color: theme.palette.common.navy
+  },
+  drawerItemSelected: {
+    color: theme.palette.secondary.main
   }
 }));
 
@@ -67,12 +113,15 @@ const Navbar = () => {
   const theme = useTheme();
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
   const matches = useMediaQuery(theme.breakpoints.down("md"));
-  const [value, setValue] = useState(0);
 
+  const [openDrawer, setOpenDrawer] = useState(false);
+  const [value, setValue] = useState(0);
   const [openMenu, setOpenMenu] = useState(false);
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
   useEffect(() => {
     if (window.location.pathname === "/" && value !== 0) {
       setValue(0);
@@ -92,7 +141,7 @@ const Navbar = () => {
         onChange={handleChange}
         aria-label="Tabs on Navbar"
         textColor="secondary"
-        indicatorColor="secondary"
+        indicatorColor="primary"
         className={classes.tabContainer}
         centered
       >
@@ -119,10 +168,142 @@ const Navbar = () => {
     </Fragment>
   );
 
+  const drawer = (
+    <Fragment>
+      <SwipeableDrawer
+        disableBackdropTransition={!iOS}
+        disableDiscovery={iOS}
+        open={openDrawer}
+        onClose={() => setOpenDrawer(false)}
+        onOpen={() => setOpenDrawer(true)}
+        classes={{ paper: classes.drawer }}
+      >
+        <List>
+          <ListItem
+            onClick={() => {
+              setOpenDrawer(false);
+              setValue(0);
+            }}
+            divider
+            button
+            component={Link}
+            to="/"
+            selected={value === 0}
+          >
+            <ListItemText
+              className={
+                value === 0
+                  ? [classes.drawerItem, classes.drawerItemSelected]
+                  : classes.drawerItem
+              }
+              disableTypography
+            >
+              HOME
+            </ListItemText>
+          </ListItem>
+          <ListItem
+            onClick={() => {
+              setOpenDrawer(false);
+              setValue(1);
+            }}
+            divider
+            button
+            component={Link}
+            to="/about"
+            selected={value === 1}
+          >
+            <ListItemText
+              className={
+                value === 1
+                  ? [classes.drawerItem, classes.drawerItemSelected]
+                  : classes.drawerItem
+              }
+              disableTypography
+            >
+              ABOUT ME
+            </ListItemText>
+          </ListItem>
+          <ListItem
+            onClick={() => {
+              setOpenDrawer(false);
+              setValue(2);
+            }}
+            divider
+            button
+            component={Link}
+            to="/projects"
+            selected={value === 2}
+          >
+            <ListItemText
+              className={
+                value === 2
+                  ? [classes.drawerItem, classes.drawerItemSelected]
+                  : classes.drawerItem
+              }
+              disableTypography
+            >
+              PROJECTS
+            </ListItemText>
+          </ListItem>
+          <ListItem
+            onClick={() => {
+              setOpenDrawer(false);
+              setValue(3);
+            }}
+            divider
+            button
+            component={Link}
+            to="/contact"
+            selected={value === 3}
+          >
+            <ListItemText
+              className={
+                value === 3
+                  ? [classes.drawerItem, classes.drawerItemSelected]
+                  : classes.drawerItem
+              }
+              disableTypography
+            >
+              CONTACT
+            </ListItemText>
+          </ListItem>
+        </List>
+      </SwipeableDrawer>
+      <IconButton
+        className={classes.drawerIconContainer}
+        onClick={() => setOpenDrawer(!openDrawer)}
+      >
+        <MenuIcon className={classes.drawerIcon} />
+      </IconButton>
+    </Fragment>
+  );
+
+  const iconButtons = (
+    <Fragment>
+      <IconButton
+        target="_blank"
+        href="https://github.com/robertpengcode"
+        className={classes.iconButton}
+      >
+        <GitHubIcon className={classes.button} />
+      </IconButton>
+      <IconButton
+        target="_blank"
+        href="https://www.linkedin.com/in/robert-jenpo-peng-0b1bbb49/"
+        className={classes.iconButton}
+      >
+        <LinkedInIcon className={classes.button} />
+      </IconButton>
+      <IconButton className={classes.iconButton}>
+        <EmailIcon className={classes.button} />
+      </IconButton>
+    </Fragment>
+  );
+
   return (
     <Fragment>
       <ElevationScroll>
-        <AppBar position="fixed" color="primary" >
+        <AppBar position="fixed" color="primary" className={classes.appBar}>
           <Toolbar>
             <ImportantDevicesIcon className={classes.logo} />
             <Typography
@@ -132,24 +313,7 @@ const Navbar = () => {
             >
               Robert Peng
             </Typography>
-            {matches ? null : tabs}
-            <IconButton
-              target="_blank"
-              href="https://github.com/robertpengcode"
-              className={classes.iconButton}
-            >
-              <GitHubIcon className={classes.button} />
-            </IconButton>
-            <IconButton
-              target="_blank"
-              href="https://www.linkedin.com/in/robert-jenpo-peng-0b1bbb49/"
-              className={classes.iconButton}
-            >
-              <LinkedInIcon className={classes.button} />
-            </IconButton>
-            <IconButton className={classes.iconButton}>
-              <EmailIcon className={classes.button} />
-            </IconButton>
+            {matches ? drawer : tabs}
           </Toolbar>
         </AppBar>
       </ElevationScroll>

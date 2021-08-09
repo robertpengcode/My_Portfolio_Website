@@ -1,12 +1,16 @@
 import {createMuiTheme} from '@material-ui/core/styles'
+import { black } from 'color-name';
 
 const Theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#cfd8dc'
+      main: '#189AB4'
     },
     secondary: {
-      main: '#006064'
+      main: '#D4F1F4'
+    },
+    common: {
+      navy: '#05445e'
     }
   },
   status: {

@@ -3,9 +3,9 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   footer: {
-    backgroundColor: theme.palette.secondary.light,
+    backgroundColor: theme.palette.primary.light,
     width: "100%",
-    color: "white",
+    color: theme.palette.secondary.main,
     textAlign: "center",
     fontFamily: theme.typography.fontFamily,
     fontSize: "1.5rem",
@@ -15,8 +15,7 @@ const useStyles = makeStyles(theme => ({
 
 const Footer = () => {
   const classes = useStyles();
-
-  return <footer className={classes.footer}>© 2020, Robert Peng</footer>;
+  return <footer className={classes.footer}>© 2021, Robert Peng</footer>;
 };
 
 export default Footer;
