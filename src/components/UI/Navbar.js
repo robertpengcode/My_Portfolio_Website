@@ -115,29 +115,46 @@ const Navbar = () => {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
 
   const [openDrawer, setOpenDrawer] = useState(false);
-  const [value, setValue] = useState(0);
-  const [openMenu, setOpenMenu] = useState(false);
+  const [tabValue, setTabValue] = useState(0);
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    setTabValue(newValue);
   };
 
+  const routes = [
+    { name: "HOME", link: "/", tabValue: 0 },
+    { name: "ABOUT ME", link: "/about", tabValue: 1 },
+    { name: "PROJECTS", link: "/projects", tabValue: 2 },
+    { name: "CONTACT", link: "/contact", tabValue: 3 }
+  ];
+
   useEffect(() => {
-    if (window.location.pathname === "/" && value !== 0) {
-      setValue(0);
-    } else if (window.location.pathname === "/about" && value !== 1) {
-      setValue(1);
-    } else if (window.location.pathname === "/projects" && value !== 2) {
-      setValue(2);
-    } else if (window.location.pathname === "/contact" && value !== 2) {
-      setValue(3);
-    }
-  }, [value]);
+    routes.forEach(route => {
+      if (
+        window.location.pathname === route.link &&
+        tabValue !== route.tabValue
+      ) {
+        setTabValue(route.tabValue);
+      }
+    });
+  }, [routes, tabValue]);
+
+  // useEffect(() => {
+  //   if (window.location.pathname === "/" && tabValue !== 0) {
+  //     setTabValue(0);
+  //   } else if (window.location.pathname === "/about" && tabValue !== 1) {
+  //     setTabValue(1);
+  //   } else if (window.location.pathname === "/projects" && tabValue !== 2) {
+  //     setTabValue(2);
+  //   } else if (window.location.pathname === "/contact" && tabValue !== 2) {
+  //     setTabValue(3);
+  //   }
+  // }, [tabValue]);
 
   const tabs = (
     <Fragment>
       <Tabs
-        value={value}
+        value={tabValue}
         onChange={handleChange}
         aria-label="Tabs on Navbar"
         textColor="secondary"
@@ -145,7 +162,17 @@ const Navbar = () => {
         className={classes.tabContainer}
         centered
       >
-        <Tab className={classes.tab} label="Home" component={Link} to="/" />
+        {routes.map((route, id) => (
+          <Tab
+            key={id}
+            className={classes.tab}
+            label={route.name}
+            component={Link}
+            to={route.link}
+          />
+        ))}
+
+        {/* <Tab className={classes.tab} label="Home" component={Link} to="/" />
         <Tab
           className={classes.tab}
           label="About Me"
@@ -163,7 +190,7 @@ const Navbar = () => {
           label="Contact"
           component={Link}
           to="/contact"
-        />
+        /> */}
       </Tabs>
     </Fragment>
   );
@@ -179,20 +206,46 @@ const Navbar = () => {
         classes={{ paper: classes.drawer }}
       >
         <List>
-          <ListItem
+          {routes.map((route, id) => (
+            <ListItem
+              key={id}
+              onClick={() => {
+                setOpenDrawer(false);
+                setTabValue(route.tabValue);
+              }}
+              divider
+              button
+              component={Link}
+              to={route.link}
+              selected={tabValue === route.tabValue}
+            >
+              <ListItemText
+                className={
+                  tabValue === route.tabValue
+                    ? [classes.drawerItem, classes.drawerItemSelected]
+                    : classes.drawerItem
+                }
+                disableTypography
+              >
+                {route.name}
+              </ListItemText>
+            </ListItem>
+          ))}
+
+          {/* <ListItem
             onClick={() => {
               setOpenDrawer(false);
-              setValue(0);
+              setTabValue(0);
             }}
             divider
             button
             component={Link}
             to="/"
-            selected={value === 0}
+            selected={tabValue === 0}
           >
             <ListItemText
               className={
-                value === 0
+                tabValue === 0
                   ? [classes.drawerItem, classes.drawerItemSelected]
                   : classes.drawerItem
               }
@@ -204,17 +257,17 @@ const Navbar = () => {
           <ListItem
             onClick={() => {
               setOpenDrawer(false);
-              setValue(1);
+              setTabValue(1);
             }}
             divider
             button
             component={Link}
             to="/about"
-            selected={value === 1}
+            selected={tabValue === 1}
           >
             <ListItemText
               className={
-                value === 1
+                tabValue === 1
                   ? [classes.drawerItem, classes.drawerItemSelected]
                   : classes.drawerItem
               }
@@ -226,17 +279,17 @@ const Navbar = () => {
           <ListItem
             onClick={() => {
               setOpenDrawer(false);
-              setValue(2);
+              setTabValue(2);
             }}
             divider
             button
             component={Link}
             to="/projects"
-            selected={value === 2}
+            selected={tabValue === 2}
           >
             <ListItemText
               className={
-                value === 2
+                tabValue === 2
                   ? [classes.drawerItem, classes.drawerItemSelected]
                   : classes.drawerItem
               }
@@ -248,17 +301,17 @@ const Navbar = () => {
           <ListItem
             onClick={() => {
               setOpenDrawer(false);
-              setValue(3);
+              setTabValue(3);
             }}
             divider
             button
             component={Link}
             to="/contact"
-            selected={value === 3}
+            selected={tabValue === 3}
           >
             <ListItemText
               className={
-                value === 3
+                tabValue === 3
                   ? [classes.drawerItem, classes.drawerItemSelected]
                   : classes.drawerItem
               }
@@ -266,7 +319,7 @@ const Navbar = () => {
             >
               CONTACT
             </ListItemText>
-          </ListItem>
+          </ListItem> */}
         </List>
       </SwipeableDrawer>
       <IconButton
