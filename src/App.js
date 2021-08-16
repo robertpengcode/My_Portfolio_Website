@@ -4,7 +4,7 @@ import Navbar from "./components/UI/Navbar";
 import Home from "./components/Home";
 import AboutMe from "./components/AboutMe";
 import Projects from "./components/Projects";
-import Contact from "./components/Contact";
+import Resume from "./components/Resume";
 //Material-UI
 import { ThemeProvider } from "@material-ui/styles";
 import theme from "./components/UI/Theme";
@@ -19,7 +19,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={AboutMe} />
           <Route exact path="/projects" component={Projects} />
-          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/resume" component={Resume} />
         </Switch>
         <Footer />
       </BrowserRouter>

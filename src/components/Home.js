@@ -1,6 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles(theme => ({
   paperContainer: {
@@ -16,7 +18,13 @@ const useStyles = makeStyles(theme => ({
 const Home = () => {
   const classes = useStyles();
   return (
-    <Paper elevation={0} className={classes.paperContainer}></Paper>
+    <Paper elevation={0} className={classes.paperContainer}>
+      <Box>
+      <Typography >
+        Home Here
+      </Typography>
+    </Box>
+    </Paper>
   );
 };
 

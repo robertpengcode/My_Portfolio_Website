@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme => ({
   paperContainer: {
@@ -12,11 +13,15 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Contact = () => {
+const Resume = () => {
   const classes = useStyles();
   return (
-    <Paper elevation={0} className={classes.paperContainer}></Paper>
+    <Fragment>
+<Typography>Resume Here</Typography>
+<Paper elevation={0} className={classes.paperContainer}></Paper>
+    </Fragment>
+    
   );
 };
 
-export default Contact;
+export default Resume;

@@ -5,17 +5,14 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
 import ImportantDevicesIcon from "@material-ui/icons/ImportantDevices";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import EmailIcon from "@material-ui/icons/Email";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -23,7 +20,14 @@ import ListItemText from "@material-ui/core/ListItemText";
 
 const useStyles = makeStyles(theme => ({
   toolbarMargin: {
-    ...theme.mixins.toolbar
+    ...theme.mixins.toolbar,
+    marginBottom: "1.5rem",
+    [theme.breakpoints.down("md")]: {
+      marginBottom: "1rem"
+    },
+    [theme.breakpoints.down("xs")]: {
+      marginBottom: "0.5rem"
+    }
   },
   appBar: {
     [theme.breakpoints.down("md")]: {
@@ -47,7 +51,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   tabContainer: {
-    margin: "auto"
+    marginLeft: "auto"
   },
   tab: {
     fontWeight: "bold",
@@ -65,8 +69,8 @@ const useStyles = makeStyles(theme => ({
       height: "2.5rem"
     },
     [theme.breakpoints.down("xs")]: {
-      width: "1.5rem",
-      height: "1.5rem"
+      width: "2rem",
+      height: "2rem"
     }
   },
   iconButton: {
@@ -93,7 +97,9 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.common.navy
   },
   drawerItemSelected: {
-    color: theme.palette.secondary.main
+    "& .MuiListItemText-root": {
+      color: theme.palette.secondary.main
+    }
   }
 }));
 
@@ -125,7 +131,7 @@ const Navbar = () => {
     { name: "HOME", link: "/", tabValue: 0 },
     { name: "ABOUT ME", link: "/about", tabValue: 1 },
     { name: "PROJECTS", link: "/projects", tabValue: 2 },
-    { name: "CONTACT", link: "/contact", tabValue: 3 }
+    { name: "RESUME", link: "/resume", tabValue: 3 }
   ];
 
   useEffect(() => {
@@ -138,18 +144,6 @@ const Navbar = () => {
       }
     });
   }, [routes, tabValue]);
-
-  // useEffect(() => {
-  //   if (window.location.pathname === "/" && tabValue !== 0) {
-  //     setTabValue(0);
-  //   } else if (window.location.pathname === "/about" && tabValue !== 1) {
-  //     setTabValue(1);
-  //   } else if (window.location.pathname === "/projects" && tabValue !== 2) {
-  //     setTabValue(2);
-  //   } else if (window.location.pathname === "/contact" && tabValue !== 2) {
-  //     setTabValue(3);
-  //   }
-  // }, [tabValue]);
 
   const tabs = (
     <Fragment>
@@ -171,26 +165,6 @@ const Navbar = () => {
             to={route.link}
           />
         ))}
-
-        {/* <Tab className={classes.tab} label="Home" component={Link} to="/" />
-        <Tab
-          className={classes.tab}
-          label="About Me"
-          component={Link}
-          to="/about"
-        />
-        <Tab
-          className={classes.tab}
-          label="Projects"
-          component={Link}
-          to="/projects"
-        />
-        <Tab
-          className={classes.tab}
-          label="Contact"
-          component={Link}
-          to="/contact"
-        /> */}
       </Tabs>
     </Fragment>
   );
@@ -218,108 +192,16 @@ const Navbar = () => {
               component={Link}
               to={route.link}
               selected={tabValue === route.tabValue}
+              classes={{ selected: classes.drawerItemSelected }}
             >
               <ListItemText
-                className={
-                  tabValue === route.tabValue
-                    ? [classes.drawerItem, classes.drawerItemSelected]
-                    : classes.drawerItem
-                }
+                className={classes.drawerItem}
                 disableTypography
               >
                 {route.name}
               </ListItemText>
             </ListItem>
           ))}
-
-          {/* <ListItem
-            onClick={() => {
-              setOpenDrawer(false);
-              setTabValue(0);
-            }}
-            divider
-            button
-            component={Link}
-            to="/"
-            selected={tabValue === 0}
-          >
-            <ListItemText
-              className={
-                tabValue === 0
-                  ? [classes.drawerItem, classes.drawerItemSelected]
-                  : classes.drawerItem
-              }
-              disableTypography
-            >
-              HOME
-            </ListItemText>
-          </ListItem>
-          <ListItem
-            onClick={() => {
-              setOpenDrawer(false);
-              setTabValue(1);
-            }}
-            divider
-            button
-            component={Link}
-            to="/about"
-            selected={tabValue === 1}
-          >
-            <ListItemText
-              className={
-                tabValue === 1
-                  ? [classes.drawerItem, classes.drawerItemSelected]
-                  : classes.drawerItem
-              }
-              disableTypography
-            >
-              ABOUT ME
-            </ListItemText>
-          </ListItem>
-          <ListItem
-            onClick={() => {
-              setOpenDrawer(false);
-              setTabValue(2);
-            }}
-            divider
-            button
-            component={Link}
-            to="/projects"
-            selected={tabValue === 2}
-          >
-            <ListItemText
-              className={
-                tabValue === 2
-                  ? [classes.drawerItem, classes.drawerItemSelected]
-                  : classes.drawerItem
-              }
-              disableTypography
-            >
-              PROJECTS
-            </ListItemText>
-          </ListItem>
-          <ListItem
-            onClick={() => {
-              setOpenDrawer(false);
-              setTabValue(3);
-            }}
-            divider
-            button
-            component={Link}
-            to="/contact"
-            selected={tabValue === 3}
-          >
-            <ListItemText
-              className={
-                tabValue === 3
-                  ? [classes.drawerItem, classes.drawerItemSelected]
-                  : classes.drawerItem
-              }
-              disableTypography
-            >
-              CONTACT
-            </ListItemText>
-          </ListItem> */}
         </List>
       </SwipeableDrawer>
       <IconButton
@@ -327,28 +209,6 @@ const Navbar = () => {
         onClick={() => setOpenDrawer(!openDrawer)}
       >
         <MenuIcon className={classes.drawerIcon} />
-      </IconButton>
-    </Fragment>
-  );
-
-  const iconButtons = (
-    <Fragment>
-      <IconButton
-        target="_blank"
-        href="https://github.com/robertpengcode"
-        className={classes.iconButton}
-      >
-        <GitHubIcon className={classes.button} />
-      </IconButton>
-      <IconButton
-        target="_blank"
-        href="https://www.linkedin.com/in/robert-jenpo-peng-0b1bbb49/"
-        className={classes.iconButton}
-      >
-        <LinkedInIcon className={classes.button} />
-      </IconButton>
-      <IconButton className={classes.iconButton}>
-        <EmailIcon className={classes.button} />
       </IconButton>
     </Fragment>
   );
