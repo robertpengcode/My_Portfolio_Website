@@ -1,9 +1,23 @@
 import React, { Fragment } from "react";
+import jsImg from "./../pics/js.svg";
+import pyImg from "./../pics/py.svg";
+import reactImg from "./../pics/react.svg";
+import materialuiImg from "./../pics/materialui.svg";
+import nodeImg from "./../pics/node.svg";
+import expressImg from "./../pics/express.svg";
+import reduxImg from "./../pics/redux.svg";
+import htmlImg from "./../pics/html.svg";
+import cssImg from "./../pics/css.svg";
+import postgresqlImg from "./../pics/postgresql.svg";
+import mongodbImg from "./../pics/mongodb.svg";
+import awsImg from "./../pics/aws.svg";
+
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
+import Image from "material-ui-image";
 
 const useStyles = makeStyles(theme => ({
   box: {},
@@ -27,15 +41,20 @@ const useStyles = makeStyles(theme => ({
     lineHeight: "2.5rem"
   },
   itemText: {
-    width: "45%",
-    height: "75vh",
+    width: "50%",
+    height: "75vh"
     //border: "solid",
   },
   itemSkills: {
     width: "45%",
-    height: "75vh",
+    height: "50vh",
+    marginTop: "5rem"
     //border: "solid",
   },
+  image: {
+    width: "100px",
+    height: "100px"
+  }
 }));
 
 const AboutMe = () => {
@@ -44,7 +63,7 @@ const AboutMe = () => {
     <Fragment>
       <Box className={classes.box}>
         <Paper elevation={0} className={classes.paperContainer}>
-          <Grid container direction="row" justify="center" spacing={4}>
+          <Grid container direction="row" justify="space-evenly" spacing={4}>
             <Grid item className={classes.itemText}>
               <Typography className={classes.title}>
                 An Accountant Steps Into The Programming World
@@ -72,7 +91,56 @@ const AboutMe = () => {
               </Typography>
             </Grid>
             <Grid item className={classes.itemSkills}>
-              Skills here here
+              <Grid container direction="column" alignItems="center">
+                <Grid item>
+                  <Grid container>
+                    <Grid item className={classes.image}>
+                      <Image src={htmlImg} />
+                    </Grid>
+                    <Grid item className={classes.image}>
+                      <Image src={cssImg} />
+                    </Grid>
+                    <Grid item className={classes.image}>
+                      <Image src={materialuiImg} />
+                    </Grid>
+                    <Grid item className={classes.image}>
+                      <Image src={jsImg} />
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <Grid item>
+                  <Grid container>
+                    <Grid item className={classes.image}>
+                      <Image src={reactImg} />
+                    </Grid>
+                    <Grid item className={classes.image}>
+                      <Image src={reduxImg} />
+                    </Grid>
+                    <Grid item className={classes.image}>
+                      <Image src={nodeImg} />
+                    </Grid>
+                    <Grid item className={classes.image}>
+                      <Image src={expressImg} />
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <Grid item>
+                  <Grid container>
+                    <Grid item className={classes.image}>
+                      <Image src={postgresqlImg} />
+                    </Grid>
+                    <Grid item className={classes.image}>
+                      <Image src={mongodbImg} />
+                    </Grid>
+                    <Grid item className={classes.image}>
+                      <Image src={awsImg} />
+                    </Grid>
+                    <Grid item className={classes.image}>
+                      <Image src={pyImg} />
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </Paper>

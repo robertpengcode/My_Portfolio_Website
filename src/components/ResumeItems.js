@@ -10,6 +10,7 @@ import IconButton from "@material-ui/core/IconButton";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import EmailIcon from "@material-ui/icons/Email";
+import SmartphoneIcon from '@material-ui/icons/Smartphone';
 
 const useStyles = makeStyles(theme => ({
   resumeContainer: {
@@ -23,20 +24,44 @@ const useStyles = makeStyles(theme => ({
     fontWeight: "bold"
   },
   headItem: {
-    fontSize: "1.2rem",
+    fontSize: "1rem",
     fontFamily: theme.typography.fontFamily,
-    color: "Black",
+    color: "Black"
   },
   categoryContainer: {
     marginBottom: "1rem"
   },
   categoryName: {
+    fontSize: "1.2rem",
+    fontFamily: theme.typography.fontFamily,
+    color: "Black",
     fontWeight: "bold"
   },
   divider: {
-    marginTop: "0.25rem",
-    marginBottom: "0.25rem"
-  }
+    marginTop: "0.1rem",
+    marginBottom: "0.1rem"
+  },
+  itemName: {
+    marginLeft: "1rem",
+    fontSize: "1rem",
+    fontFamily: theme.typography.fontFamily,
+    color: "Black",
+    fontWeight: "bold"
+  },
+  item: {
+    marginLeft: "1.5rem",
+    fontSize: "1rem",
+    fontFamily: theme.typography.fontFamily,
+    color: "Black",
+    //width: "80%",
+    //border: "solid",
+  },
+  itemLocationTime: {
+    marginRight: "1.5rem",
+    fontSize: "1rem",
+    fontFamily: theme.typography.fontFamily,
+    color: "Black",
+  },
 }));
 
 const ResumeItems = () => {
@@ -45,7 +70,7 @@ const ResumeItems = () => {
     <Grid container direction="column" className={classes.headContainer}>
       <Grid item>
         <Typography variant="h5" className={classes.headTitle}>
-          Robert (Jenpo) Peng, MBA, CPA
+          Robert (Jenpo) Peng, MBA, CPA - US Citizen
         </Typography>
       </Grid>
       <Grid item>
@@ -59,12 +84,10 @@ const ResumeItems = () => {
             </IconButton>
           </Grid>
           <Grid item>
-            <Typography className={classes.headItem}>Madison, NJ USA</Typography>
+            <Typography className={classes.headItem}>
+              Madison, NJ USA
+            </Typography>
           </Grid>
-        </Grid>
-      </Grid>
-      <Grid item>
-        <Grid container alignItems="center">
           <Grid item>
             <IconButton>
               <EmailIcon />
@@ -72,7 +95,17 @@ const ResumeItems = () => {
           </Grid>
           <Grid item>
             <Typography className={classes.headItem}>
-              jenpopeng@gmail.com
+              jenpopeng@gmail.com (Preferred)
+            </Typography>
+          </Grid>
+          <Grid item>
+            <IconButton>
+              <SmartphoneIcon />
+            </IconButton>
+          </Grid>
+          <Grid item>
+            <Typography className={classes.headItem}>
+              (862)334-4083
             </Typography>
           </Grid>
         </Grid>
@@ -96,10 +129,6 @@ const ResumeItems = () => {
               linkedin.com/in/robert-jenpo-peng-0b1bbbb49
             </Link>
           </Grid>
-        </Grid>
-      </Grid>
-      <Grid item>
-        <Grid container alignItems="center">
           <Grid item>
             <IconButton
               target="_blank"
@@ -124,7 +153,12 @@ const ResumeItems = () => {
   );
 
   const categories = resumeInfo.map((category, id1) => (
-    <Grid container direction="column" className={classes.categoryContainer}>
+    <Grid
+      container
+      key={id1}
+      direction="column"
+      className={classes.categoryContainer}
+    >
       <Divider className={classes.divider} />
       <Grid item className={classes.categoryName}>
         {category.categoryName}
@@ -132,10 +166,28 @@ const ResumeItems = () => {
       <Grid item>
         <Grid container direction="column">
           {category.items.map((item, id2) => (
-            <Fragment>
-              <Grid item>{item.itemName}</Grid>
+            <Fragment key={id2}>
+              <Grid item>
+                <Grid container justify="space-between">
+                  <Grid item className={classes.itemName}>
+                    {item.itemName}
+                  </Grid>
+                  <Grid item className={classes.itemLocationTime}>
+                    {item.locationOrTime}
+                  </Grid>
+                </Grid>
+              </Grid>
               {item.descriptions.map((des, id3) => (
-                <Grid item>{des}</Grid>
+                <Grid item key={id3}>
+                  <Grid container justify="space-between">
+                    <Grid item className={classes.item}>
+                      {des.des}
+                    </Grid>
+                    <Grid item className={classes.itemLocationTime}>
+                      {des.time}
+                    </Grid>
+                  </Grid>
+                </Grid>
               ))}
             </Fragment>
           ))}

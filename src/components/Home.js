@@ -1,5 +1,5 @@
 import React, {Fragment} from "react";
-import robertAvatar from "./../photos/robertPeng.png";
+import robertAvatar from "./../pics/robertPeng.png";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
@@ -55,10 +55,10 @@ const Home = () => {
           <Grid container direction="column" alignItems="center" spacing={4}>
             <Grid item className={classes.itemText}>
               <Typography className={classes.title}>
-                Now, Navigate To The Next...
+                [...Now, NavigateToTheNext]
               </Typography>
               <Typography className={classes.subtitle}>
-                ~ Bootcamp Grad Ready To Build! ~
+                " Coding Bootcamp Grad Ready To Build! "
               </Typography>
             </Grid>
             <Grid item className={classes.itemAvatar}>
