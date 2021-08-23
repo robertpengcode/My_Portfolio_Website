@@ -32,28 +32,57 @@ const useStyles = makeStyles(theme => ({
     ...theme.typography,
     color: "white",
     fontSize: "1.75rem",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1.5rem"
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.25rem"
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1rem"
+    }
   },
   text: {
     ...theme.typography,
     color: "white",
     fontSize: "1.2rem",
-    lineHeight: "2.5rem"
+    lineHeight: "2.5rem",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1.1rem",
+      lineHeight: "2.3rem"
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1rem",
+      lineHeight: "1.8rem"
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1rem",
+      lineHeight: "1.6rem"
+    }
   },
   itemText: {
-    width: "50%",
-    height: "75vh"
     //border: "solid",
   },
   itemSkills: {
-    width: "45%",
-    height: "50vh",
-    marginTop: "5rem"
-    //border: "solid",
+    marginTop: "auto",
+    marginBottom: "auto",
   },
   image: {
     width: "100px",
-    height: "100px"
+    height: "100px",
+    [theme.breakpoints.down("md")]: {
+      width: "70px",
+      height: "70px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "60px",
+      height: "60px"
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "50px",
+      height: "50px"
+    }
   }
 }));
 
@@ -63,8 +92,8 @@ const AboutMe = () => {
     <Fragment>
       <Box className={classes.box}>
         <Paper elevation={0} className={classes.paperContainer}>
-          <Grid container direction="row" justify="space-evenly" spacing={4}>
-            <Grid item className={classes.itemText}>
+          <Grid container direction="row" justify="space-around" spacing={4}>
+            <Grid item className={classes.itemText} xs={11} sm={11} md={7} lg={6}>
               <Typography className={classes.title}>
                 An Accountant Steps Into The Programming World
               </Typography>
@@ -90,7 +119,7 @@ const AboutMe = () => {
                 engineering career.
               </Typography>
             </Grid>
-            <Grid item className={classes.itemSkills}>
+            <Grid item className={classes.itemSkills} xs={11} sm={11} md={4} lg={5}>
               <Grid container direction="column" alignItems="center">
                 <Grid item>
                   <Grid container>
