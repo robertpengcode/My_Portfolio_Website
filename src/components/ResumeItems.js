@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+//import { Link } from "react-router-dom";
 import resumeInfo from "./resumeInfo";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -53,8 +54,6 @@ const useStyles = makeStyles(theme => ({
     fontSize: "1rem",
     fontFamily: theme.typography.fontFamily,
     color: "Black",
-    //width: "80%",
-    //border: "solid",
   },
   itemLocationTime: {
     marginRight: "1.5rem",
@@ -89,7 +88,7 @@ const ResumeItems = () => {
             </Typography>
           </Grid>
           <Grid item>
-            <IconButton>
+            <IconButton href="/contact" target="_blank">
               <EmailIcon />
             </IconButton>
           </Grid>

@@ -20,7 +20,6 @@ import Grid from "@material-ui/core/Grid";
 import Image from "material-ui-image";
 
 const useStyles = makeStyles(theme => ({
-  box: {},
   paperContainer: {
     backgroundImage: `url(laptopCoffee2.jpg)`,
     height: "82vh",
@@ -90,7 +89,7 @@ const AboutMe = () => {
   const classes = useStyles();
   return (
     <Fragment>
-      <Box className={classes.box}>
+      <Box>
         <Paper elevation={0} className={classes.paperContainer}>
           <Grid container direction="row" justify="space-around" spacing={4}>
             <Grid item className={classes.itemText} xs={11} sm={11} md={7} lg={6}>

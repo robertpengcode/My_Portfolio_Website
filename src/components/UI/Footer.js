@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import GitHubIcon from "@material-ui/icons/GitHub";
@@ -54,7 +55,12 @@ const Footer = () => {
       >
         <LinkedInIcon className={classes.button} />
       </IconButton>
-      <IconButton className={classes.iconButton}>
+      <IconButton
+        className={classes.iconButton}
+        target="_blank"
+        component={Link}
+        to="/contact"
+      >
         <EmailIcon className={classes.button} />
       </IconButton>
       <Divider />
