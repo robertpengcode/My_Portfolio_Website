@@ -10,7 +10,9 @@ const Theme = createMuiTheme({
       background: '#D4F1F490',
     },
     common: {
-      navy: '#05445e'
+      navy: '#05445e',
+      red: '#FF0000',
+      main: '#FF0000',
     }
   },
   status: {

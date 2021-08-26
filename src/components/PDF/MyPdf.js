@@ -1,9 +1,8 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import { makeStyles } from "@material-ui/core/styles";
 import resume from "./resume.pdf";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
-
 
 const useStyles = makeStyles(theme => ({
   pdf: {
@@ -18,7 +17,6 @@ const MyPdf = () => {
 
   const classes = useStyles();
   
-
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
   }

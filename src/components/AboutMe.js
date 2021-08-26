@@ -18,14 +18,15 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Image from "material-ui-image";
+//import zIndex from "@material-ui/core/styles/zIndex";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   paperContainer: {
     backgroundImage: `url(laptopCoffee2.jpg)`,
     height: "82vh",
     width: "100%",
     backgroundSize: "cover",
-    opacity: "0.8"
+    opacity: "0.8",
   },
   title: {
     ...theme.typography,
@@ -33,14 +34,14 @@ const useStyles = makeStyles(theme => ({
     fontSize: "1.75rem",
     fontWeight: "bold",
     [theme.breakpoints.down("md")]: {
-      fontSize: "1.5rem"
+      fontSize: "1.5rem",
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: "1.25rem"
+      fontSize: "1.25rem",
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: "1rem"
-    }
+      fontSize: "1rem",
+    },
   },
   text: {
     ...theme.typography,
@@ -49,16 +50,16 @@ const useStyles = makeStyles(theme => ({
     lineHeight: "2.5rem",
     [theme.breakpoints.down("md")]: {
       fontSize: "1.1rem",
-      lineHeight: "2.3rem"
+      lineHeight: "2.3rem",
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: "1rem",
-      lineHeight: "1.8rem"
+      lineHeight: "1.8rem",
     },
     [theme.breakpoints.down("xs")]: {
       fontSize: "1rem",
-      lineHeight: "1.6rem"
-    }
+      lineHeight: "1.6rem",
+    },
   },
   itemText: {
     //border: "solid",
@@ -76,13 +77,13 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.down("sm")]: {
       width: "60px",
-      height: "60px"
+      height: "60px",
     },
     [theme.breakpoints.down("xs")]: {
       width: "50px",
-      height: "50px"
-    }
-  }
+      height: "50px",
+    },
+  },
 }));
 
 const AboutMe = () => {
@@ -92,7 +93,14 @@ const AboutMe = () => {
       <Box>
         <Paper elevation={0} className={classes.paperContainer}>
           <Grid container direction="row" justify="space-around" spacing={4}>
-            <Grid item className={classes.itemText} xs={11} sm={11} md={7} lg={6}>
+            <Grid
+              item
+              className={classes.itemText}
+              xs={11}
+              sm={11}
+              md={7}
+              lg={6}
+            >
               <Typography className={classes.title}>
                 An Accountant Steps Into The Programming World
               </Typography>
@@ -118,7 +126,14 @@ const AboutMe = () => {
                 engineering career.
               </Typography>
             </Grid>
-            <Grid item className={classes.itemSkills} xs={11} sm={11} md={4} lg={5}>
+            <Grid
+              item
+              className={classes.itemSkills}
+              xs={11}
+              sm={11}
+              md={4}
+              lg={5}
+            >
               <Grid container direction="column" alignItems="center">
                 <Grid item>
                   <Grid container>

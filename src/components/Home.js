@@ -31,7 +31,8 @@ const useStyles = makeStyles(theme => ({
   },
   subtitle: {
     ...theme.typography,
-    color: "red",
+    //color: "red",
+    color: theme.palette.common.red,
     fontSize: "3rem",
     fontWeight: "Bold",
     [theme.breakpoints.down("md")]: {

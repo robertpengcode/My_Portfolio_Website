@@ -15,8 +15,12 @@ import SmartphoneIcon from '@material-ui/icons/Smartphone';
 
 const useStyles = makeStyles(theme => ({
   resumeContainer: {
-    marginLeft: "2rem",
-    width: "50%"
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop: "2rem",
+    marginButtom: "2rem",
+    paddingTop: "1rem",
+    width: "90%"
   },
   headContainer: {
     marginBottom: "1rem"

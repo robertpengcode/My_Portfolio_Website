@@ -18,7 +18,27 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   paper: {
+    width: "50%",
+    marginTop: "1rem",
+    marginBottom: "1rem",
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
+  contactform: {
+    textAlign: "Center",
+  },
+  emailTitle: {
+    fontSize: "2rem",
+    marginBottom: "0.5rem",
+  },
+  emailItem: {
     width: "80%",
+    marginBottom: "1rem",
+  },
+  emailButton: {
+    marginBottom: "1rem",
+    fontSize: "1.2rem",
+    fontWeight: "bold",
   },
 }));
 
@@ -28,6 +48,7 @@ export default function Contactme() {
     subject: "",
     name: "",
     email: "",
+    phone: "",
     message: "",
   };
 
@@ -64,10 +85,10 @@ export default function Contactme() {
 
   return (
     <Paper className={classes.paper}>
-      <form className="contact-form" onSubmit={sendEmail}>
+      <form className={classes.contactform} onSubmit={sendEmail}>
         <Grid container direction="column">
           <Grid item>
-            <Typography>Email Robert</Typography>
+            <Typography className={classes.emailTitle}>Email Robert</Typography>
           </Grid>
           <Grid item>
             <TextField
@@ -77,6 +98,7 @@ export default function Contactme() {
               name="subject"
               value={emailValues.subject}
               onChange={handleChange}
+              className={classes.emailItem}
             />
           </Grid>
           <Grid item>
@@ -87,6 +109,7 @@ export default function Contactme() {
               name="name"
               value={emailValues.name}
               onChange={handleChange}
+              className={classes.emailItem}
             />
           </Grid>
           <Grid item>
@@ -97,20 +120,45 @@ export default function Contactme() {
               name="email"
               value={emailValues.email}
               onChange={handleChange}
+              className={classes.emailItem}
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              id="phone"
+              label="Your Phone#"
+              variant="outlined"
+              name="phone"
+              value={emailValues.phone}
+              onChange={handleChange}
+              className={classes.emailItem}
             />
           </Grid>
           <Grid item>
             <TextField
               id="message"
               label="Message"
-              variant="outlined"
               name="message"
+              multiline
+              rows={5}
+              //defaultValue="Default Value"
+              variant="outlined"
               value={emailValues.message}
               onChange={handleChange}
+              className={classes.emailItem}
             />
           </Grid>
           <Grid item>
-            <input type="submit" value="Send Email" />
+            {/* <input type="submit" value="Send Email" /> */}
+            <Button
+              type="submit"
+              variant="contained"
+              size="large"
+              color="primary"
+              className={classes.emailButton}
+            >
+              Send Email
+            </Button>
           </Grid>
         </Grid>
       </form>
