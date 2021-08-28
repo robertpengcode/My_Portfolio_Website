@@ -109,7 +109,7 @@ const Home = () => {
             </Grid>
             <Grid item className={classes.itemAvatar}>
               <Avatar
-                alt="RobertPengAvatar"
+                alt="Robert Peng Avatar"
                 src={robertAvatar}
                 className={classes.avatar}
               />
