@@ -135,8 +135,8 @@ const resumeInfo = [
   {
     categoryName: "INTERESTS",
     items: [
-      { itemName: "Gardening", descriptions: [""] },
-      { itemName: "Walking", descriptions: [""] }
+      { itemName: "Gardening & Walking", descriptions: [""] },
+      //{ itemName: "Walking", descriptions: [""] }
     ]
   }
 ];
