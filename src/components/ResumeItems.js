@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   resumeContainer: {
     marginLeft: "auto",
     marginRight: "auto",
-    marginTop: "2rem",
+    marginTop: "0.5rem",
     marginButtom: "2rem",
     paddingTop: "1rem",
     width: "90%"

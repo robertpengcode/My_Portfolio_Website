@@ -21,12 +21,12 @@ import ListItemText from "@material-ui/core/ListItemText";
 const useStyles = makeStyles(theme => ({
   toolbarMargin: {
     ...theme.mixins.toolbar,
-    marginBottom: "1.5rem",
+    marginBottom: "1rem",
     [theme.breakpoints.down("md")]: {
-      marginBottom: "1rem"
+      marginBottom: "0.5rem"
     },
     [theme.breakpoints.down("xs")]: {
-      marginBottom: "0.5rem"
+      marginBottom: "0rem"
     }
   },
   appBar: {

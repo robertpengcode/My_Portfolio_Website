@@ -79,7 +79,6 @@ export default function Contactme() {
   const [emailSent, setEmailSent] = useState(false);
 
   function redirectToThankYou() {
-    //console.log("called!");
     setEmailSent(true);
   }
 
@@ -88,7 +87,6 @@ export default function Contactme() {
 
     emailjs.sendForm(serviceID, templateID, e.target, userID).then(
       (result) => {
-        //console.log(result.text);
         redirectToThankYou();
       },
       (error) => {
@@ -100,7 +98,6 @@ export default function Contactme() {
 
   function handleChange(e) {
     const { name, value } = e.target;
-    //console.log("e target", e.target);
     setEmailValues({
       ...emailValues,
       [name]: value,
@@ -251,9 +248,4 @@ export default function Contactme() {
     </Paper>
   );
   return emailSent === false ? emailForm : <Redirect to="/thankyou" />;
-  // if (emailSent === false) {
-  //   return emailForm;
-  // } else {
-  //   return <Redirect to="/thankyou" />;
-  // }
 }
