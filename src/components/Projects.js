@@ -1,22 +1,31 @@
 import React, { Fragment } from "react";
+
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { Box } from "@material-ui/core";
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles((theme) => ({
   containerAll: {
-    // backgroundColor: "yellow",
     width: "100%",
   },
   containerYear: {
     //border: "solid",
   },
   imgBox: {
-    backgroundColor: theme.palette.primary.main,
+    //backgroundColor: theme.palette.primary.main,
     height: "12rem",
     width: "18rem",
-    //border: "solid",
+    //border: "solid red",
+  },
+  imgBoxOkinawa: {
+    height: "12rem",
+    width: "18rem",
+    //border: "solid red",
+    border: `${theme.palette.primary.main} solid 0.1rem`,
+    backgroundImage: `url(okinawaImg.png)`,
+    backgroundSize: "cover",
   },
   text: {
     backgroundColor: theme.palette.secondary.main,
@@ -33,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1.2rem",
     fontWeight: "bold",
     height: "2rem",
-    //border: "solid",
     textAlign: "center",
   },
 }));
@@ -88,8 +96,15 @@ const Projects = () => {
           <Grid item>
             <Grid container justify="space-evenly">
               <Grid item>
-                <Box className={classes.imgBox}>image</Box>
-                <Typography className={classes.text}>text</Typography>
+                <Grid container direction="column">
+                    <Link target="_blank"
+                      href="https://robertpengcode.github.io/1945-OKINAWA/" >
+                        <Grid item className={classes.imgBoxOkinawa}></Grid>
+                    </Link>
+                  <Grid item>
+                    <Typography className={classes.text}>text</Typography>
+                  </Grid>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
