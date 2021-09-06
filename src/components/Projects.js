@@ -13,35 +13,8 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "1rem",
   },
   containerYear: {
-    //border: "solid",
-  },
-  projectContainer: {
-    height: "20rem",
-    width: "20rem",
-  },
-  imgBox: {
-    height: "12rem",
-    width: "18rem",
-    //border: "solid red",
-  },
-  imgBoxOkinawa: {
-    margin: "auto",
-    marginTop: "1rem",
-    height: "12rem",
-    width: "18rem",
-    //border: "solid red",
-    border: `${theme.palette.primary.main} solid 0.2rem`,
-    backgroundImage: `url(okinawaImg.png)`,
-    backgroundSize: "cover",
-  },
-  text: {
-    margin: "auto",
-    marginTop: "0.5rem",
-    fontSize: "1.2rem",
-    textAlign: "center",
-    height: "6rem",
-    width: "18rem",
-    //border: "solid red",
+    //border: "solid green",
+    margin: "0.5rem",
   },
   title: {
     marginLeft: "1rem",
@@ -55,6 +28,61 @@ const useStyles = makeStyles((theme) => ({
     height: "2rem",
     textAlign: "center",
   },
+  projectContainer: {
+    height: "22rem",
+    width: "22rem",
+  },
+  imgBox: {
+    height: "12rem",
+    width: "18rem",
+    //border: "solid red",
+  },
+  text: {
+    margin: "auto",
+    marginTop: "0.5rem",
+    fontSize: "1.2rem",
+    textAlign: "center",
+    height: "6rem",
+    width: "20rem",
+    border: "solid red",
+  },
+  imgBoxJAR: {
+    margin: "auto",
+    marginTop: "1rem",
+    height: "11rem",
+    width: "20rem",
+    border: `${theme.palette.primary.main} solid 0.2rem`,
+    backgroundImage: `url(jarImg.png)`,
+    backgroundSize: "cover",
+  },
+  textJAR: {
+    margin: "auto",
+    marginTop: "0.5rem",
+    fontSize: "1.2rem",
+    textAlign: "center",
+    height: "9rem",
+    width: "20rem",
+    //border: "solid red",
+  },
+  imgBoxOkinawa: {
+    margin: "auto",
+    marginTop: "1rem",
+    height: "13.5rem",
+    width: "20rem",
+    border: `${theme.palette.primary.main} solid 0.2rem`,
+    backgroundImage: `url(okinawaImg.png)`,
+    backgroundSize: "cover",
+  },
+  textOkinawa: {
+    margin: "auto",
+    marginTop: "0.5rem",
+    fontSize: "1.2rem",
+    textAlign: "center",
+    height: "6rem",
+    width: "20rem",
+    //border: "solid red",
+  },
+  
 }));
 
 const Projects = () => {
@@ -88,6 +116,37 @@ const Projects = () => {
           <Grid item>
             <Grid container justify="space-evenly">
               <Grid item>
+                <Paper className={classes.projectContainer}>
+                <Grid container direction="column">
+                    <Link target="_blank"
+                      href="https://github.com/robertpengcode/graceShopper" >
+                        <Grid item className={classes.imgBoxJAR}></Grid>
+                    </Link>
+                  <Grid item>
+                    <Typography className={classes.textJAR}>JAR, a Fullstack Academy group project by Josh, Andres, and Robert using Node, Express, React, and PostgreSQL. An e-commerce website where visitors can browse essential goods during the stay-at-home period.</Typography>
+                  </Grid>
+                </Grid>
+                </Paper>
+              </Grid>
+              <Grid item>
+                <Paper className={classes.projectContainer}>
+                <Grid container direction="column">
+                    <Link target="_blank"
+                      href="https://github.com/robertpengcode/graceShopper" >
+                        <Grid item className={classes.imgBoxJAR}></Grid>
+                    </Link>
+                  <Grid item>
+                    <Typography className={classes.textJAR}>JAR, a Fullstack Academy group project by Josh, Andres, and Robert using Node, Express, React, and PostgreSQL. An e-commerce website where visitors can browse essential goods during the stay-at-home period.</Typography>
+                  </Grid>
+                </Grid>
+                </Paper>
+              </Grid>
+            </Grid>
+          </Grid>
+          
+          {/* <Grid item>
+            <Grid container justify="space-evenly">
+              <Grid item>
                 <Box className={classes.imgBox}>image</Box>
                 <Typography className={classes.text}>text</Typography>
               </Grid>
@@ -96,7 +155,7 @@ const Projects = () => {
                 <Typography className={classes.text}>text</Typography>
               </Grid>
             </Grid>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Grid>
       <Grid item >
@@ -114,7 +173,7 @@ const Projects = () => {
                         <Grid item className={classes.imgBoxOkinawa}></Grid>
                     </Link>
                   <Grid item>
-                    <Typography className={classes.text}>A shooting game using JavaScript, HTML, CSS, Bootstrap. The background is the battle of Okinawa happened in 1945.</Typography>
+                    <Typography className={classes.textOkinawa}>A shooting game using JavaScript, HTML, CSS, Bootstrap. The background is the battle of Okinawa happened in 1945.</Typography>
                   </Grid>
                 </Grid>
                 </Paper>
