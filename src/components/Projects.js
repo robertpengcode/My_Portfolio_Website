@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { Box } from "@material-ui/core";
-import Link from '@material-ui/core/Link';
+import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles((theme) => ({
@@ -46,6 +46,24 @@ const useStyles = makeStyles((theme) => ({
     width: "20rem",
     border: "solid red",
   },
+  imgBoxClassroom: {
+    margin: "auto",
+    marginTop: "1rem",
+    height: "11rem",
+    width: "20rem",
+    border: `${theme.palette.primary.main} solid 0.2rem`,
+    backgroundImage: `url(iClassroomImg.png)`,
+    backgroundSize: "cover",
+  },
+  textClassroom: {
+    margin: "auto",
+    marginTop: "0.5rem",
+    fontSize: "1.2rem",
+    textAlign: "center",
+    height: "9rem",
+    width: "20rem",
+    //border: "solid red",
+  },
   imgBoxJAR: {
     margin: "auto",
     marginTop: "1rem",
@@ -82,7 +100,6 @@ const useStyles = makeStyles((theme) => ({
     width: "20rem",
     //border: "solid red",
   },
-  
 }));
 
 const Projects = () => {
@@ -117,48 +134,50 @@ const Projects = () => {
             <Grid container justify="space-evenly">
               <Grid item>
                 <Paper className={classes.projectContainer}>
-                <Grid container direction="column">
-                    <Link target="_blank"
-                      href="https://github.com/robertpengcode/graceShopper" >
-                        <Grid item className={classes.imgBoxJAR}></Grid>
+                  <Grid container direction="column">
+                    <Link
+                      target="_blank"
+                      href="https://github.com/robertpengcode/graceShopper"
+                    >
+                      <Grid item className={classes.imgBoxJAR}></Grid>
                     </Link>
-                  <Grid item>
-                    <Typography className={classes.textJAR}>JAR, a Fullstack Academy group project by Josh, Andres, and Robert using Node, Express, React, and PostgreSQL. An e-commerce website where visitors can browse essential goods during the stay-at-home period.</Typography>
+                    <Grid item>
+                      <Typography className={classes.textJAR}>
+                        JAR, a Fullstack Academy group project by Josh, Andres,
+                        and Robert using Node, Express, React, and PostgreSQL.
+                        An e-commerce website where visitors can browse
+                        essential goods during the stay-at-home period.
+                      </Typography>
+                    </Grid>
                   </Grid>
-                </Grid>
                 </Paper>
               </Grid>
               <Grid item>
                 <Paper className={classes.projectContainer}>
-                <Grid container direction="column">
-                    <Link target="_blank"
-                      href="https://github.com/robertpengcode/graceShopper" >
-                        <Grid item className={classes.imgBoxJAR}></Grid>
+                  <Grid container direction="column">
+                    <Link
+                      target="_blank"
+                      href="https://github.com/robertpengcode/iClassroom"
+                    >
+                      <Grid item className={classes.imgBoxClassroom}></Grid>
                     </Link>
-                  <Grid item>
-                    <Typography className={classes.textJAR}>JAR, a Fullstack Academy group project by Josh, Andres, and Robert using Node, Express, React, and PostgreSQL. An e-commerce website where visitors can browse essential goods during the stay-at-home period.</Typography>
+                    <Grid item>
+                      <Typography className={classes.textClassroom}>
+                        iClassroom, a Fullstack Academy group project by Tandid,
+                        Aleks, Vinayak, and Robert using Node, Express, React,
+                        and PostgreSQL. An online education platform where
+                        teachers can assign homeworks to students and grade
+                        them...
+                      </Typography>
+                    </Grid>
                   </Grid>
-                </Grid>
                 </Paper>
               </Grid>
             </Grid>
           </Grid>
-          
-          {/* <Grid item>
-            <Grid container justify="space-evenly">
-              <Grid item>
-                <Box className={classes.imgBox}>image</Box>
-                <Typography className={classes.text}>text</Typography>
-              </Grid>
-              <Grid item>
-                <Box className={classes.imgBox}>image</Box>
-                <Typography className={classes.text}>text</Typography>
-              </Grid>
-            </Grid>
-          </Grid> */}
         </Grid>
       </Grid>
-      <Grid item >
+      <Grid item>
         <Grid container direction="column" className={classes.containerYear}>
           <Grid item className={classes.year}>
             2019
@@ -167,15 +186,21 @@ const Projects = () => {
             <Grid container justify="space-evenly">
               <Grid item>
                 <Paper className={classes.projectContainer}>
-                <Grid container direction="column">
-                    <Link target="_blank"
-                      href="https://robertpengcode.github.io/1945-OKINAWA/" >
-                        <Grid item className={classes.imgBoxOkinawa}></Grid>
+                  <Grid container direction="column">
+                    <Link
+                      target="_blank"
+                      href="https://robertpengcode.github.io/1945-OKINAWA/"
+                    >
+                      <Grid item className={classes.imgBoxOkinawa}></Grid>
                     </Link>
-                  <Grid item>
-                    <Typography className={classes.textOkinawa}>A shooting game using JavaScript, HTML, CSS, Bootstrap. The background is the battle of Okinawa happened in 1945.</Typography>
+                    <Grid item>
+                      <Typography className={classes.textOkinawa}>
+                        1945 OKINAWA, a shooting game using JavaScript, HTML,
+                        CSS, Bootstrap. The background is the battle of Okinawa
+                        happened in 1945.
+                      </Typography>
+                    </Grid>
                   </Grid>
-                </Grid>
                 </Paper>
               </Grid>
             </Grid>
