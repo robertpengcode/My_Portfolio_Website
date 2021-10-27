@@ -64,6 +64,15 @@ const useStyles = makeStyles((theme) => ({
     width: "20rem",
     //border: "solid red",
   },
+  imgBoxOrganic: {
+    margin: "auto",
+    marginTop: "1rem",
+    height: "11rem",
+    width: "20rem",
+    border: `${theme.palette.primary.main} solid 0.2rem`,
+    backgroundImage: `url(iorganicfarmImg.png)`,
+    backgroundSize: "cover",
+  },
   imgBoxJAR: {
     margin: "auto",
     marginTop: "1rem",
@@ -114,13 +123,45 @@ const Projects = () => {
           <Grid item>
             <Grid container justify="space-evenly">
               <Grid item>
-                <Box className={classes.imgBox}>image</Box>
-                <Typography className={classes.text}>text</Typography>
+                <Paper className={classes.projectContainer}>
+                  <Grid container direction="column">
+                    <Link
+                      target="_blank"
+                      href="https://iorganicfarm-react.herokuapp.com/"
+                    >
+                      <Grid item className={classes.imgBoxOrganic}></Grid>
+                    </Link>
+                    <Grid item>
+                      <Typography className={classes.textJAR}>
+                        A 2021 Fullstack Website Project by Robert Peng using
+                        Node, Express, React (hooks), and MongoDB. An e-commerce
+                        website where users can buy organic produce and
+                        registered vendors can exchange them.
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </Paper>
               </Grid>
-              <Grid item>
-                <Box className={classes.imgBox}>image</Box>
-                <Typography className={classes.text}>text</Typography>
-              </Grid>
+              {/* <Grid item>
+                <Paper className={classes.projectContainer}>
+                  <Grid container direction="column">
+                    <Link
+                      target="_blank"
+                      href="https://github.com/robertpengcode/graceShopper"
+                    >
+                      <Grid item className={classes.imgBoxJAR}></Grid>
+                    </Link>
+                    <Grid item>
+                      <Typography className={classes.textJAR}>
+                        JAR, a Fullstack Academy group project by Josh, Andres,
+                        and Robert using Node, Express, React, and PostgreSQL.
+                        An e-commerce website where visitors can browse
+                        essential goods during the stay-at-home period.
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </Paper>
+              </Grid> */}
             </Grid>
           </Grid>
         </Grid>
