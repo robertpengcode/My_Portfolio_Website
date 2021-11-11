@@ -202,7 +202,7 @@ const ResumeItems = () => {
           {category.items.map((item, id2) => (
             <Fragment key={id2}>
               <Grid item>
-                <Grid container justify="space-between">
+                <Grid container justifyContent="space-between">
                   <Grid item className={classes.itemName}>
                     {item.itemName}
                   </Grid>
@@ -213,7 +213,7 @@ const ResumeItems = () => {
               </Grid>
               {item.descriptions.map((des, id3) => (
                 <Grid item key={id3}>
-                  <Grid container justify="space-between">
+                  <Grid container justifyContent="space-between">
                     <Grid item className={classes.item}>
                       {des.des}
                     </Grid>

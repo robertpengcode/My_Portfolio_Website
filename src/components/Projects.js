@@ -147,7 +147,7 @@ const Projects = () => {
             2021
           </Grid>
           <Grid item>
-            <Grid container justify="space-evenly">
+            <Grid container justifyContent="space-evenly">
               <Grid item>
                 <Paper className={classes.projectContainer}>
                   <Grid container direction="column">
@@ -200,7 +200,7 @@ const Projects = () => {
             2020
           </Grid>
           <Grid item>
-            <Grid container justify="space-evenly">
+            <Grid container justifyContent="space-evenly">
               <Grid item>
                 <Paper className={classes.projectContainer}>
                   <Grid container direction="column">
@@ -254,7 +254,7 @@ const Projects = () => {
             2019
           </Grid>
           <Grid item>
-            <Grid container justify="space-evenly">
+            <Grid container justifyContent="space-evenly">
               <Grid item>
                 <Paper className={classes.projectContainer}>
                   <Grid container direction="column">
@@ -283,7 +283,7 @@ const Projects = () => {
   );
 
   return (
-    <Box id="main" role="main" tabindex="-1">
+    <Box id="main" role="main" tabIndex="-1">
       <Box className={classes.title} >
         <Typography variant="h1" className={classes.heading1}>My Projects</Typography>
       </Box>

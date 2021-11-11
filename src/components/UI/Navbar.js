@@ -6,7 +6,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import ImportantDevicesIcon from "@material-ui/icons/ImportantDevices";
-import useScrollTrigger from "@material-ui/core/useScrollTrigger";
+//import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -104,16 +104,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ElevationScroll(props) {
-  const { children } = props;
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-  });
-  return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0,
-  });
-}
+// function ElevationScroll(props) {
+//   const { children } = props;
+//   const trigger = useScrollTrigger({
+//     disableHysteresis: true,
+//     threshold: 0,
+//   });
+//   return React.cloneElement(children, {
+//     elevation: trigger ? 4 : 0,
+//   });
+// }
 
 const Navbar = () => {
   const classes = useStyles();
@@ -164,6 +164,7 @@ const Navbar = () => {
             label={route.name}
             component={Link}
             to={route.link}
+            tabIndex="0"
           />
         ))}
       </Tabs>
@@ -205,6 +206,7 @@ const Navbar = () => {
       <IconButton
         aria-label="drawer"
         className={classes.drawerIconContainer}
+        aria-expanded={openDrawer}
         onClick={() => setOpenDrawer(!openDrawer)}
       >
         <MenuIcon className={classes.drawerIcon} />

@@ -3,7 +3,7 @@ import { useReactToPrint } from "react-to-print";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
-import MyPdf from "./PDF/MyPdf";
+//import MyPdf from "./PDF/MyPdf";
 import ResumeItems from "./ResumeItems";
 import Button from "@material-ui/core/Button";
 import { Box } from "@material-ui/core";

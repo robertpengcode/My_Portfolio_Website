@@ -92,14 +92,14 @@ const AboutMe = () => {
   }, []);
 
   return (
-    <Box id="main" role="main" tabindex="-1">
+    <Box id="main" role="main" tabIndex="-1">
       <Paper elevation={0} className={classes.paperContainer}>
-        <Grid container direction="row" justify="space-around" spacing={4}>
+        <Grid container direction="row" justifyContent="space-around" spacing={4}>
           <Grid item className={classes.itemText} xs={11} sm={11} md={7} lg={6}>
-            <Typography variant="h1" className={classes.title}>
+            <Typography variant="h1" className={classes.title} >
               An Accountant Steps Into The Programming World
             </Typography>
-            <Typography className={classes.text}>
+            <Typography className={classes.text} >
               I started my career as an accountant. Throughout the years, I
               realized the efficiency and quality of my work heavily relied on
               the ability to retrieve precise data from the company’s database
