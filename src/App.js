@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/UI/Navbar";
 import Home from "./components/Home";
 import AboutMe from "./components/AboutMe";
@@ -17,14 +17,14 @@ function App() {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <Navbar />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/about" component={AboutMe} />
-          <Route exact path="/projects" component={Projects} />
-          <Route exact path="/resume" component={Resume} />
-          <Route exact path="/contact" component={Contactme} />
-          <Route exact path="/thankyou" component={ThankYou} />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/about" element={<AboutMe/>}/>
+          <Route path="/projects" element={<Projects/>}/>
+          <Route path="/resume" element={<Resume/>}/>
+          <Route path="/contact" element={<Contactme/>}/>
+          <Route path="/thankyou" element={<ThankYou/>}/>
+        </Routes>
         <Footer />
       </BrowserRouter>
     </ThemeProvider>

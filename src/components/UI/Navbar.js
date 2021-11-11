@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 //Material-UI
 import AppBar from "@material-ui/core/AppBar";
@@ -128,12 +128,19 @@ const Navbar = () => {
     setTabValue(newValue);
   };
 
-  const routes = [
+  const routes = useMemo(()=> [
     { name: "HOME", link: "/", tabValue: 0 },
     { name: "ABOUT ME", link: "/about", tabValue: 1 },
     { name: "PROJECTS", link: "/projects", tabValue: 2 },
     { name: "RESUME", link: "/resume", tabValue: 3 },
-  ];
+  ], []);
+
+  // const routes = [
+  //   { name: "HOME", link: "/", tabValue: 0 },
+  //   { name: "ABOUT ME", link: "/about", tabValue: 1 },
+  //   { name: "PROJECTS", link: "/projects", tabValue: 2 },
+  //   { name: "RESUME", link: "/resume", tabValue: 3 },
+  // ];
 
   useEffect(() => {
     routes.forEach((route) => {

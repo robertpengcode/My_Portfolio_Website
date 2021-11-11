@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import emailjs from "emailjs-com";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
@@ -252,5 +252,5 @@ export default function Contactme() {
       </form>
     </Paper>
   );
-  return emailSent === false ? emailForm : <Redirect to="/thankyou" />;
+  return emailSent === false ? emailForm : <Navigate to="/thankyou" />;
 }
