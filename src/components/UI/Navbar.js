@@ -18,47 +18,48 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   toolbarMargin: {
     ...theme.mixins.toolbar,
-    marginBottom: "1rem",
+    marginBottom: "2rem",
     [theme.breakpoints.down("md")]: {
-      marginBottom: "0.5rem"
+      marginBottom: "1.5rem",
     },
     [theme.breakpoints.down("xs")]: {
-      marginBottom: "0rem"
-    }
+      marginBottom: "0.5rem",
+    },
   },
   appBar: {
     [theme.breakpoints.down("md")]: {
-      height: "4rem"
+      height: "4.5rem",
     },
     [theme.breakpoints.down("xs")]: {
-      height: "3rem"
-    }
+      height: "3.5rem",
+    },
   },
   title: {
     margin: "1rem",
     fontWeight: "bold",
+    fontSize: "2rem",
     fontFamily: theme.typography.fontFamily,
     [theme.breakpoints.down("md")]: {
       margin: "0.75rem",
-      fontSize: "2rem"
+      fontSize: "2rem",
     },
     [theme.breakpoints.down("xs")]: {
       margin: "0.5rem",
-      fontSize: "1.2rem"
-    }
+      fontSize: "1.5rem",
+    },
   },
   tabContainer: {
-    marginLeft: "auto"
+    marginLeft: "auto",
   },
   tab: {
     fontWeight: "bold",
     fontSize: "1.3rem",
     fontFamily: theme.typography.fontFamily,
     minWidth: 10,
-    margin: "0.8rem"
+    margin: "0.8rem",
   },
   logo: {
     width: "3rem",
@@ -66,51 +67,51 @@ const useStyles = makeStyles(theme => ({
     color: "white",
     [theme.breakpoints.down("md")]: {
       width: "2.5rem",
-      height: "2.5rem"
+      height: "2.5rem",
     },
     [theme.breakpoints.down("xs")]: {
       width: "2rem",
-      height: "2rem"
-    }
+      height: "2rem",
+    },
   },
   iconButton: {
-    margin: "0.5rem"
+    margin: "0.5rem",
   },
   button: {
     width: 35,
-    height: 35
+    height: 35,
   },
   drawerIconContainer: {
-    marginLeft: "auto"
+    marginLeft: "auto",
   },
   drawerIcon: {
     height: "2rem",
-    width: "2rem"
+    width: "2rem",
   },
   drawer: {
-    backgroundColor: theme.palette.primary.main
+    backgroundColor: theme.palette.primary.main,
   },
   drawerItem: {
     fontWeight: "bold",
     fontSize: "1.3rem",
     fontFamily: theme.typography.fontFamily,
-    color: theme.palette.common.navy
+    color: theme.palette.common.navy,
   },
   drawerItemSelected: {
     "& .MuiListItemText-root": {
-      color: theme.palette.secondary.main
-    }
-  }
+      color: theme.palette.secondary.main,
+    },
+  },
 }));
 
 function ElevationScroll(props) {
   const { children } = props;
   const trigger = useScrollTrigger({
     disableHysteresis: true,
-    threshold: 0
+    threshold: 0,
   });
   return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0
+    elevation: trigger ? 4 : 0,
   });
 }
 
@@ -118,7 +119,7 @@ const Navbar = () => {
   const classes = useStyles();
   const theme = useTheme();
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const matches = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [openDrawer, setOpenDrawer] = useState(false);
   const [tabValue, setTabValue] = useState(0);
@@ -131,11 +132,11 @@ const Navbar = () => {
     { name: "HOME", link: "/", tabValue: 0 },
     { name: "ABOUT ME", link: "/about", tabValue: 1 },
     { name: "PROJECTS", link: "/projects", tabValue: 2 },
-    { name: "RESUME", link: "/resume", tabValue: 3 }
+    { name: "RESUME", link: "/resume", tabValue: 3 },
   ];
 
   useEffect(() => {
-    routes.forEach(route => {
+    routes.forEach((route) => {
       if (
         window.location.pathname === route.link &&
         tabValue !== route.tabValue
@@ -194,10 +195,7 @@ const Navbar = () => {
               selected={tabValue === route.tabValue}
               classes={{ selected: classes.drawerItemSelected }}
             >
-              <ListItemText
-                className={classes.drawerItem}
-                disableTypography
-              >
+              <ListItemText className={classes.drawerItem} disableTypography>
                 {route.name}
               </ListItemText>
             </ListItem>
@@ -205,6 +203,7 @@ const Navbar = () => {
         </List>
       </SwipeableDrawer>
       <IconButton
+        aria-label="drawer"
         className={classes.drawerIconContainer}
         onClick={() => setOpenDrawer(!openDrawer)}
       >
@@ -214,22 +213,20 @@ const Navbar = () => {
   );
 
   return (
+    // <ElevationScroll></ElevationScroll>
     <Fragment>
-      <ElevationScroll>
-        <AppBar position="fixed" color="primary" className={classes.appBar}>
-          <Toolbar>
-            <ImportantDevicesIcon className={classes.logo} />
-            <Typography
-              variant="h4"
-              color="secondary"
-              className={classes.title}
-            >
-              Robert Peng
-            </Typography>
-            {matches ? drawer : tabs}
-          </Toolbar>
-        </AppBar>
-      </ElevationScroll>
+      <AppBar position="fixed" color="primary" className={classes.appBar}>
+        <div className="skip">
+          <a href="#main">Skip to main content</a>
+        </div>
+        <Toolbar role="navigation">
+          <ImportantDevicesIcon className={classes.logo} aria-label="logo" role="img"/>
+          <Typography color="secondary" className={classes.title}>
+            Robert Peng
+          </Typography>
+          {matches ? drawer : tabs}
+        </Toolbar>
+      </AppBar>
       <div className={classes.toolbarMargin}></div>
     </Fragment>
   );

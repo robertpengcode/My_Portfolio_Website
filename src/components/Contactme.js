@@ -64,6 +64,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Contactme() {
   const classes = useStyles();
+
+  useEffect(() => {
+    document.title = "Contact me Robert Peng"
+  }, [])
+
   const initialEmailValues = {
     recruiter: false,
     company: false,
@@ -166,7 +171,7 @@ export default function Contactme() {
   );
 
   const emailForm = (
-    <Paper className={classes.paper}>
+    <Paper className={classes.paper} id="main" role="main">
       <form className={classes.contactform} onSubmit={sendEmail}>
         <Grid container direction="column">
           <Grid item>

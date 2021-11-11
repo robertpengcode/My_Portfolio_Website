@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { useEffect } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -20,6 +20,12 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "1rem",
     marginBottom: "1rem",
   },
+  heading1: {
+    fontSize: "2.5rem",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "2rem",
+    },
+  },
   year: {
     ...theme.typography,
     width: "100%",
@@ -29,31 +35,49 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
   },
   projectContainer: {
-    height: "22rem",
-    width: "22rem",
+    height: "25rem",
+    width: "25rem",
+    [theme.breakpoints.down("xs")]: {
+      height: "22rem",
+      width: "22rem",
+    },
   },
-  imgBox: {
-    height: "12rem",
-    width: "18rem",
-    //border: "solid red",
+  imgBoxOrganic: {
+    margin: "auto",
+    marginTop: "1rem",
+    height: "12.5rem",
+    width: "23rem",
+    border: `${theme.palette.primary.main} solid 0.2rem`,
+    backgroundImage: `url(iorganicfarmImg.png)`,
+    backgroundSize: "cover",
+    [theme.breakpoints.down("xs")]: {
+      height: "11rem",
+      width: "20rem",
+    },
   },
-  text: {
+  textOrganic: {
     margin: "auto",
     marginTop: "0.5rem",
     fontSize: "1.2rem",
     textAlign: "center",
-    height: "6rem",
+    height: "9rem",
     width: "20rem",
-    border: "solid red",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1.1rem",
+    },
   },
   imgBoxClassroom: {
     margin: "auto",
     marginTop: "1rem",
-    height: "11rem",
-    width: "20rem",
+    height: "12.5rem",
+    width: "23rem",
     border: `${theme.palette.primary.main} solid 0.2rem`,
     backgroundImage: `url(iClassroomImg.png)`,
     backgroundSize: "cover",
+    [theme.breakpoints.down("xs")]: {
+      height: "11rem",
+      width: "20rem",
+    },
   },
   textClassroom: {
     margin: "auto",
@@ -64,23 +88,18 @@ const useStyles = makeStyles((theme) => ({
     width: "20rem",
     //border: "solid red",
   },
-  imgBoxOrganic: {
-    margin: "auto",
-    marginTop: "1rem",
-    height: "11rem",
-    width: "20rem",
-    border: `${theme.palette.primary.main} solid 0.2rem`,
-    backgroundImage: `url(iorganicfarmImg.png)`,
-    backgroundSize: "cover",
-  },
   imgBoxJAR: {
     margin: "auto",
     marginTop: "1rem",
-    height: "11rem",
-    width: "20rem",
+    height: "12.5rem",
+    width: "23rem",
     border: `${theme.palette.primary.main} solid 0.2rem`,
     backgroundImage: `url(jarImg.png)`,
     backgroundSize: "cover",
+    [theme.breakpoints.down("xs")]: {
+      height: "11rem",
+      width: "20rem",
+    },
   },
   textJAR: {
     margin: "auto",
@@ -94,11 +113,15 @@ const useStyles = makeStyles((theme) => ({
   imgBoxOkinawa: {
     margin: "auto",
     marginTop: "1rem",
-    height: "13.5rem",
-    width: "20rem",
+    height: "16rem",
+    width: "23rem",
     border: `${theme.palette.primary.main} solid 0.2rem`,
     backgroundImage: `url(okinawaImg.png)`,
     backgroundSize: "cover",
+    [theme.breakpoints.down("xs")]: {
+      height: "13.5rem",
+      width: "20rem",
+    },
   },
   textOkinawa: {
     margin: "auto",
@@ -113,6 +136,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Projects = () => {
   const classes = useStyles();
+  useEffect(() => {
+    document.title = "Projects Robert Peng"
+  }, [])
   const projects = (
     <Grid container direction="column" className={classes.containerAll}>
       <Grid item>
@@ -128,15 +154,17 @@ const Projects = () => {
                     <Link
                       target="_blank"
                       href="https://iorganicfarm-react.herokuapp.com/"
+                      aria-label="visit iOrganicFarm website hosted on Heroku"
                     >
                       <Grid item className={classes.imgBoxOrganic}></Grid>
                     </Link>
                     <Grid item>
-                      <Typography className={classes.textJAR}>
+                      <Typography className={classes.textOrganic}>
                         A 2021 Fullstack Website Project by Robert Peng using
                         Node, Express, React (hooks), and MongoDB. An e-commerce
                         website where users can buy organic produce and
-                        registered vendors can exchange them.
+                        registered vendors can exchange them. Built with Web
+                        Accessbility (WCAG 2.1) awareness.
                       </Typography>
                     </Grid>
                   </Grid>
@@ -179,6 +207,7 @@ const Projects = () => {
                     <Link
                       target="_blank"
                       href="https://github.com/robertpengcode/graceShopper"
+                      aria-label="Check JAR repository on Github"
                     >
                       <Grid item className={classes.imgBoxJAR}></Grid>
                     </Link>
@@ -199,6 +228,7 @@ const Projects = () => {
                     <Link
                       target="_blank"
                       href="https://github.com/robertpengcode/iClassroom"
+                      aria-label="Check iClassroom repository on Github"
                     >
                       <Grid item className={classes.imgBoxClassroom}></Grid>
                     </Link>
@@ -231,6 +261,7 @@ const Projects = () => {
                     <Link
                       target="_blank"
                       href="https://robertpengcode.github.io/1945-OKINAWA/"
+                      aria-label="visit 1945 Okinawa website hosted by Github"
                     >
                       <Grid item className={classes.imgBoxOkinawa}></Grid>
                     </Link>
@@ -252,12 +283,12 @@ const Projects = () => {
   );
 
   return (
-    <Fragment>
-      <Box className={classes.title}>
-        <Typography variant="h4">My Projects</Typography>
+    <Box id="main" role="main" tabindex="-1">
+      <Box className={classes.title} >
+        <Typography variant="h1" className={classes.heading1}>My Projects</Typography>
       </Box>
       <Box>{projects}</Box>
-    </Fragment>
+    </Box>
   );
 };
 

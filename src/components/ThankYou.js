@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import navigateImg from "./../../src/pics/navigate.jpg";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
       width: "55%",
     },
     [theme.breakpoints.down("xs")]: {
-      width: "60%",
+      width: "75%",
     },
   },
   paperForImg: {
@@ -45,17 +45,40 @@ const useStyles = makeStyles((theme) => ({
   img: {
     width: "100%",
   },
+  title: {
+    fontSize: "3.5rem",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "2.5rem",
+    },
+  },
+  subtitle1: {
+    fontSize: "2rem",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1.5rem",
+    },
+  },
+  subtitle2: {
+    fontSize: "1.6rem",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1.2rem",
+    },
+  },
 }));
 
 const ThankYou = () => {
   const classes = useStyles();
+
+  useEffect(() => {
+    document.title = "Thank You Robert Peng"
+  }, [])
+
   return (
-    <Paper className={classes.paper}>
-      <Typography variant="h4">Thank You!</Typography>
-      <Typography variant="h5">For contacting me.</Typography>
-      <Typography variant="h5">We'll be in touch soon.</Typography>
+    <Paper className={classes.paper} id="main" role="main">
+      <Typography variant="h1" className={classes.title}>Thank You!</Typography>
+      <Typography className={classes.subtitle1}>For contacting me.</Typography>
+      <Typography className={classes.subtitle2}>We'll be in touch soon.</Typography>
       <Paper className={classes.paperForImg}>
-        <Image src={navigateImg} className={classes.img} />
+        <Image src={navigateImg} className={classes.img} alt=""/>
       </Paper>
     </Paper>
   );

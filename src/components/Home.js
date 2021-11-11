@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import robertAvatar from "./../pics/robertPeng.png";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
@@ -17,7 +17,8 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     ...theme.typography,
-    color: "red",
+    //color: "red",
+    color: theme.palette.common.red,
     fontSize: "5rem",
     [theme.breakpoints.down("md")]: {
       fontSize: "3.5rem"
@@ -31,7 +32,7 @@ const useStyles = makeStyles(theme => ({
   },
   subtitle: {
     ...theme.typography,
-    //color: "red",
+    marginTop: "1rem",
     color: theme.palette.common.red,
     fontSize: "3rem",
     fontWeight: "Bold",
@@ -94,16 +95,21 @@ const useStyles = makeStyles(theme => ({
 
 const Home = () => {
   const classes = useStyles();
+
+  useEffect(() => {
+    document.title = "Home Robert Peng"
+  }, [])
+
   return (
-    <Fragment>
-      <Box className={classes.box}>
+    <main>
+      <Box className={classes.box} id="main" tabindex="-1">
         <Paper elevation={0} className={classes.paperContainer}>
           <Grid container direction="column" alignItems="center" spacing={4}>
             <Grid item className={classes.itemText}>
-              <Typography className={classes.title}>
+              <Typography variant="h1" className={classes.title}>
                 [...Now, NavigateToTheNext]
               </Typography>
-              <Typography className={classes.subtitle}>
+              <Typography variant="h2" className={classes.subtitle}>
                 " Coding Bootcamp Grad Ready To Build! "
               </Typography>
             </Grid>
@@ -117,7 +123,7 @@ const Home = () => {
           </Grid>
         </Paper>
       </Box>
-    </Fragment>
+    </main>
   );
 };
 
