@@ -164,7 +164,7 @@ const ResumeItems = () => {
               target="_blank"
               size="small"
               aria-label="visit my portfolio website"
-              href="https://robertpengcode.com"
+              href="https://robertpengcode.herokuapp.com"
             >
               <PersonIcon />
             </IconButton>
@@ -174,10 +174,10 @@ const ResumeItems = () => {
               target="_blank"
               size="small"
               aria-label="visit my portfolio website"
-              href="https://robertpengcode.com"
+              href="https://robertpengcode.herokuapp.com"
               className={classes.headItemText}
             >
-              robertpengcode.com
+              robertpengcode.herokuapp.com
             </Link>
           </Grid>
         </Grid>
