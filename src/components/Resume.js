@@ -7,6 +7,7 @@ import Paper from "@material-ui/core/Paper";
 import ResumeItems from "./ResumeItems";
 import Button from "@material-ui/core/Button";
 import { Box } from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
 
 export class ComponentToPrint extends React.PureComponent {
   render() {
@@ -45,12 +46,19 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       marginLeft: "80%",
       fontSize: "1.1rem",
-      marginTop: "0.5rem",
+      marginTop: "1rem",
     },
     [theme.breakpoints.down("xs")]: {
       marginLeft: "80%",
       fontSize: "1rem",
-      marginTop: "0.2rem",
+      marginTop: "2.5rem",
+    },
+  },
+  heading1: {
+    fontSize: "2.5rem",
+    marginLeft: "1rem",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "2rem",
     },
   },
 }));
@@ -66,14 +74,13 @@ function Resume() {
   });
 
   return (
-    <Box id="main" role="main">
+    <Box id="main" role="main" tabIndex="-1">
+      <Typography variant="h1" className={classes.heading1}>My Resume</Typography>
       <Button
         variant="outlined"
         size="small"
-        //color="primary"
         className={classes.printButton}
         onClick={handlePrint}
-        id="main"
       >
         Print PDF
       </Button>

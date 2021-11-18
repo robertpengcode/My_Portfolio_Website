@@ -175,7 +175,7 @@ export default function Contactme() {
       <form className={classes.contactform} onSubmit={sendEmail}>
         <Grid container direction="column">
           <Grid item>
-            <Typography className={classes.emailTitle}>Email Robert</Typography>
+            <Typography className={classes.emailTitle} variant="h1">Email Robert</Typography>
           </Grid>
           <Grid item className={classes.checkBoxes}>
             {checkBoxes}
@@ -208,6 +208,7 @@ export default function Contactme() {
               label="Your Email (Required)"
               variant="outlined"
               name="email"
+              required
               value={emailValues.email}
               onChange={handleChange}
               className={classes.emailItem}

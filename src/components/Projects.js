@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "1rem",
   },
   containerYear: {
-    //border: "solid green",
     margin: "0.5rem",
   },
   title: {
@@ -86,7 +85,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     height: "9rem",
     width: "20rem",
-    //border: "solid red",
   },
   imgBoxJAR: {
     margin: "auto",
@@ -108,7 +106,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     height: "9rem",
     width: "20rem",
-    //border: "solid red",
   },
   imgBoxOkinawa: {
     margin: "auto",
@@ -130,7 +127,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     height: "6rem",
     width: "20rem",
-    //border: "solid red",
   },
 }));
 
@@ -164,32 +160,12 @@ const Projects = () => {
                         Node, Express, React (hooks), and MongoDB. An e-commerce
                         website where users can buy organic produce and
                         registered vendors can exchange them. Built with Web
-                        Accessbility (WCAG 2.1) awareness.
+                        Accessibility (WCAG 2.1) awareness.
                       </Typography>
                     </Grid>
                   </Grid>
                 </Paper>
               </Grid>
-              {/* <Grid item>
-                <Paper className={classes.projectContainer}>
-                  <Grid container direction="column">
-                    <Link
-                      target="_blank"
-                      href="https://github.com/robertpengcode/graceShopper"
-                    >
-                      <Grid item className={classes.imgBoxJAR}></Grid>
-                    </Link>
-                    <Grid item>
-                      <Typography className={classes.textJAR}>
-                        JAR, a Fullstack Academy group project by Josh, Andres,
-                        and Robert using Node, Express, React, and PostgreSQL.
-                        An e-commerce website where visitors can browse
-                        essential goods during the stay-at-home period.
-                      </Typography>
-                    </Grid>
-                  </Grid>
-                </Paper>
-              </Grid> */}
             </Grid>
           </Grid>
         </Grid>

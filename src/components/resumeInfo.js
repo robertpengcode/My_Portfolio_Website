@@ -28,10 +28,13 @@ const resumeInfo = [
         locationOrTime: "Oct 2021",
         descriptions: [
           {
-            des: "- Implemented automated testing methods such as Lighthouse and ARC Toolkit to identify and improve accessibility issues.",
+            des: "- Employed automated testing tools such as Lighthouse, Deque Axe, and ARC Toolkit to identify accessibility issues.",
           },
           {
-            des: "- Utilized screen readers such as VoiceOver and NVDA to perform manual testing to adhere WCAG guidelines.",
+            des: "- Utilized keyboard and screen readers such as VoiceOver to manually test buttons, links, forms, and tables.",
+          },
+          {
+            des: "- Implemented sematic HTML, Aria attributes, and JavaScript to improve web accessibility according to WCAG guidelines.",
           },
           {
             des: "- Adopted various React Hooks such as useState, useEffect, useContext, and useMemo to create function components.",
@@ -41,11 +44,6 @@ const resumeInfo = [
           },
         ],
       },
-      // {
-      //   itemName: "Math and Spelling: React Native Mobile App for Kids",
-      //   locationOrTime: "Sep 2021",
-      //   descriptions: ["React Hooks", "Material UI"]
-      // },
       {
         itemName: "JAR Online Store: Full Stack E-Commerce Web App",
         locationOrTime: "Jun 2020",

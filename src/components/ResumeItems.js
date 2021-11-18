@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     width: "90%"
   },
   headContainer: {
-    marginBottom: "0.5rem"
+    marginBottom: "0.2rem"
   },
   headTitle: {
     fontWeight: "bold",
@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
   },
   divider: {
     marginTop: "0.1rem",
-    marginBottom: "0.1rem"
+    //marginBottom: "0.1rem"
   },
   itemName: {
     marginLeft: "1rem",
@@ -97,7 +97,7 @@ const ResumeItems = () => {
             </Typography>
           </Grid>
           <Grid item>
-            <IconButton href="/contact" target="_blank" size="small" aria-label="email me">
+            <IconButton href="/contact" target="_blank" size="small" aria-label="email me opens new window">
               <EmailIcon />
             </IconButton>
           </Grid>
@@ -132,10 +132,10 @@ const ResumeItems = () => {
             <Link
               target="_blank"
               aria-label="visit my LinkedIn"
-              href="https://linkedin.com/in/robert-jenpo-peng-0b1bbbb49"
+              href="https://www.linkedin.com/in/robert-jenpo-peng-0b1bbb49/"
               className={classes.headItemText}
             >
-              linkedin.com/in/robert-jenpo-peng-0b1bbbb49
+              linkedin.com/in/robert-jenpo-peng-0b1bbb49/
             </Link>
           </Grid>
           <Grid item>
