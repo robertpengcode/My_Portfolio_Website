@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: "0.9rem",
     fontFamily: theme.typography.fontFamily,
     color: "Black",
-    marginRight: "1rem",
+    marginRight: "0.3rem",
   },
   categoryContainer: {
     marginBottom: "0.3rem"
@@ -177,7 +177,7 @@ const ResumeItems = () => {
               href="https://robertpengcode.herokuapp.com"
               className={classes.headItemText}
             >
-              robertpengcode.herokuapp.com
+              Portfolio: robertpengcode.herokuapp.com
             </Link>
           </Grid>
         </Grid>

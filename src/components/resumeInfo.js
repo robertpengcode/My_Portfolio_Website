@@ -34,7 +34,7 @@ const resumeInfo = [
             des: "- Utilized keyboard and screen readers such as VoiceOver to manually test buttons, links, forms, and tables.",
           },
           {
-            des: "- Implemented sematic HTML, Aria attributes, and JavaScript to improve web accessibility according to WCAG guidelines.",
+            des: "- Implemented sematic HTML, ARIA attributes, and JavaScript to improve web accessibility according to WCAG guidelines.",
           },
           {
             des: "- Adopted various React Hooks such as useState, useEffect, useContext, and useMemo to create function components.",
@@ -74,7 +74,7 @@ const resumeInfo = [
     categoryName: "WORK EXPERIENCE",
     items: [
       {
-        itemName: "Nan Ya Plastics, America",
+        itemName: "Nan Ya Plastics Corp., America",
         locationOrTime: "Livingston, NJ",
         descriptions: [""],
       },
