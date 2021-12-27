@@ -13,3 +13,7 @@
     height: auto;
     background-color: white;
 }
+
+a:hover{
+    outline: solid #05445e 2px;
+}  

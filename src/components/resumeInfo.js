@@ -28,16 +28,19 @@ const resumeInfo = [
         locationOrTime: "Oct 2021",
         descriptions: [
           {
-            des: "- Employed automated testing tools such as Lighthouse, Deque Axe, and ARC Toolkit to identify accessibility issues.",
+            des: "- Employed automated testing tools such as Lighthouse, Deque Axe, Wave, and ARC Toolkit to identify accessibility issues.",
           },
           {
             des: "- Utilized keyboard and screen readers such as VoiceOver to manually test buttons, links, forms, and tables.",
           },
           {
-            des: "- Implemented sematic HTML, ARIA attributes, and JavaScript to improve web accessibility according to WCAG guidelines.",
+            des: "- Used sematic HTML, ARIA attributes, JavaScript, and responsive design to improve web accessibility according to WCAG guidelines.",
           },
           {
             des: "- Adopted various React Hooks such as useState, useEffect, useContext, and useMemo to create function components.",
+          },
+          {
+            des: "- Implemented technologies such as JWT and bcrypt to build the authentication functionality.",
           },
           {
             des: "- Integrated Stripe payment processing platform into the checkout process.",
@@ -89,7 +92,7 @@ const resumeInfo = [
             des: "- Automates Excel worksheets to download data and generate reports for management using Microsoft VBA to save over 50% of time.",
           },
           {
-            des: "- Analyzes profit and loss and inventory trend using SQL query and advanced Excel functions and features to continually increase performance.",
+            des: "- Analyzes profit and loss and inventory trend using SQL and advanced Excel functions to continually increase performance.",
           },
         ],
       },

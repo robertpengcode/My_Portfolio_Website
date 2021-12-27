@@ -82,6 +82,10 @@ export default function Contactme() {
 
   const [emailValues, setEmailValues] = useState(initialEmailValues);
   const [emailSent, setEmailSent] = useState(false);
+  const [emailErrorMessage, setEmailErrorMessage] = useState("");
+  const [isEmailError, setIsEmailError] = useState(false);
+  const [phoneErrorMessage, setPhoneErrorMessage] = useState("");
+  const [isPhoneError, setIsPhoneError] = useState(false);
 
   function redirectToThankYou() {
     setEmailSent(true);
@@ -103,10 +107,22 @@ export default function Contactme() {
 
   function handleChange(e) {
     const { name, value } = e.target;
+    let isEmailValid;
+    let isPhoneValid;
     setEmailValues({
       ...emailValues,
       [name]: value,
     });
+    if (name === 'email') {
+      isEmailValid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value) || value==="";
+      isEmailValid ? setIsEmailError(false) : setIsEmailError(true);
+      isEmailValid ? setEmailErrorMessage('') : setEmailErrorMessage('Invalid email');
+    }
+    if (name === 'phone') {
+      isPhoneValid = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(value) || value==="";
+      isPhoneValid ? setIsPhoneError(false) : setIsPhoneError(true);
+      isPhoneValid ? setPhoneErrorMessage('') : setPhoneErrorMessage('Invalid phone number');
+    }
   }
 
   function handleChangeCheck(e) {
@@ -172,7 +188,7 @@ export default function Contactme() {
 
   const emailForm = (
     <Paper className={classes.paper} id="main" role="main">
-      <form className={classes.contactform} onSubmit={sendEmail}>
+      <form className={classes.contactform} onSubmit={sendEmail} autoComplete="on">
         <Grid container direction="column">
           <Grid item>
             <Typography className={classes.emailTitle} variant="h1">Email Robert</Typography>
@@ -189,6 +205,7 @@ export default function Contactme() {
               value={emailValues.subject}
               onChange={handleChange}
               className={classes.emailItem}
+              autoComplete="on"
             />
           </Grid>
           <Grid item>
@@ -200,6 +217,8 @@ export default function Contactme() {
               value={emailValues.name}
               onChange={handleChange}
               className={classes.emailItem}
+              autoComplete="on"
+              aria-label="your name"
             />
           </Grid>
           <Grid item>
@@ -212,6 +231,9 @@ export default function Contactme() {
               value={emailValues.email}
               onChange={handleChange}
               className={classes.emailItem}
+              autoComplete="on"
+              error={isEmailError}
+              helperText={emailErrorMessage}
             />
           </Grid>
           <Grid item>
@@ -223,6 +245,9 @@ export default function Contactme() {
               value={emailValues.phone}
               onChange={handleChange}
               className={classes.emailItem}
+              autoComplete="on"
+              error={isPhoneError}
+              helperText={phoneErrorMessage}
             />
           </Grid>
           <Grid item>
@@ -236,6 +261,7 @@ export default function Contactme() {
               value={emailValues.message}
               onChange={handleChange}
               className={classes.emailItem}
+              autoComplete="on"
             />
           </Grid>
           <Grid item>
