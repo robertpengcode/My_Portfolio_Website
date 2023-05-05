@@ -118,7 +118,7 @@ const useStyles = makeStyles((theme) => ({
 const Navbar = () => {
   const classes = useStyles();
   const theme = useTheme();
-  const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
+  //const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -128,12 +128,15 @@ const Navbar = () => {
     setTabValue(newValue);
   };
 
-  const routes = useMemo(()=> [
-    { name: "HOME", link: "/", tabValue: 0 },
-    { name: "ABOUT ME", link: "/about", tabValue: 1 },
-    { name: "PROJECTS", link: "/projects", tabValue: 2 },
-    { name: "RESUME", link: "/resume", tabValue: 3 },
-  ], []);
+  const routes = useMemo(
+    () => [
+      { name: "HOME", link: "/", tabValue: 0 },
+      { name: "ABOUT ME", link: "/about", tabValue: 1 },
+      { name: "PROJECTS", link: "/projects", tabValue: 2 },
+      { name: "RESUME", link: "/resume", tabValue: 3 },
+    ],
+    []
+  );
 
   // const routes = [
   //   { name: "HOME", link: "/", tabValue: 0 },
@@ -181,8 +184,8 @@ const Navbar = () => {
   const drawer = (
     <Fragment>
       <SwipeableDrawer
-        disableBackdropTransition={!iOS}
-        disableDiscovery={iOS}
+        //disableBackdropTransition={!iOS}
+        //disableDiscovery={iOS}
         open={openDrawer}
         onClose={() => setOpenDrawer(false)}
         onOpen={() => setOpenDrawer(true)}
@@ -229,7 +232,11 @@ const Navbar = () => {
           <a href="#main">Skip to main content</a>
         </div>
         <Toolbar role="navigation">
-          <ImportantDevicesIcon className={classes.logo} aria-label="logo" role="img"/>
+          <ImportantDevicesIcon
+            className={classes.logo}
+            aria-label="logo"
+            role="img"
+          />
           <Typography color="secondary" className={classes.title}>
             Robert Peng
           </Typography>
