@@ -11,20 +11,20 @@ import IconButton from "@material-ui/core/IconButton";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import EmailIcon from "@material-ui/icons/Email";
-import SmartphoneIcon from '@material-ui/icons/Smartphone';
+//import SmartphoneIcon from "@material-ui/icons/Smartphone";
 import PersonIcon from "@material-ui/icons/Person";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   resumeContainer: {
     marginLeft: "auto",
     marginRight: "auto",
     marginTop: "0.5rem",
     marginButtom: "1rem",
     paddingTop: "0.5rem",
-    width: "90%"
+    width: "90%",
   },
   headContainer: {
-    marginBottom: "0.2rem"
+    marginBottom: "0.2rem",
   },
   headTitle: {
     fontWeight: "bold",
@@ -37,13 +37,13 @@ const useStyles = makeStyles(theme => ({
     marginRight: "0.3rem",
   },
   categoryContainer: {
-    marginBottom: "0.3rem"
+    marginBottom: "0.3rem",
   },
   categoryName: {
-    fontSize: "1rem",
+    fontSize: "0.9rem",
     fontFamily: theme.typography.fontFamily,
     color: "Black",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   divider: {
     marginTop: "0.1rem",
@@ -51,20 +51,20 @@ const useStyles = makeStyles(theme => ({
   },
   itemName: {
     marginLeft: "1rem",
-    fontSize: "0.9rem",
+    fontSize: "0.8rem",
     fontFamily: theme.typography.fontFamily,
     color: "Black",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   item: {
     marginLeft: "1.5rem",
-    fontSize: "0.9rem",
+    fontSize: "0.8rem",
     fontFamily: theme.typography.fontFamily,
     color: "Black",
   },
   itemLocationTime: {
     marginRight: "1.5rem",
-    fontSize: "0.9rem",
+    fontSize: "0.8rem",
     fontFamily: theme.typography.fontFamily,
     color: "Black",
   },
@@ -76,7 +76,8 @@ const ResumeItems = () => {
     <Grid container direction="column" className={classes.headContainer}>
       <Grid item>
         <Typography className={classes.headTitle}>
-          Robert (Jenpo) Peng, MBA, CPA <span className={classes.headItemText}>- US Citizen</span>
+          Robert (Jenpo) Peng, MBA, CPA{" "}
+          <span className={classes.headItemText}>- US Citizen</span>
         </Typography>
       </Grid>
       <Grid item>
@@ -97,23 +98,28 @@ const ResumeItems = () => {
             </Typography>
           </Grid>
           <Grid item>
-            <IconButton href="/contact" target="_blank" size="small" aria-label="email me opens new window">
+            <IconButton
+              href="/contact"
+              target="_blank"
+              size="small"
+              aria-label="email me opens new window"
+            >
               <EmailIcon />
             </IconButton>
           </Grid>
           <Grid item>
             <Typography className={classes.headItemText}>
-              jenpopeng@gmail.com (Preferred)
+              jenpopeng@gmail.com
             </Typography>
           </Grid>
-          <Grid item>
-            <SmartphoneIcon role="img" aria-label="smart phone icon"/>
+          {/* <Grid item>
+            <SmartphoneIcon role="img" aria-label="smart phone icon" />
           </Grid>
           <Grid item>
             <Typography className={classes.headItemText}>
               (862)334-4083
             </Typography>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Grid>
       <Grid item>

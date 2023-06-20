@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
+//import Typography from "@material-ui/core/Typography";
 import ImportantDevicesIcon from "@material-ui/icons/ImportantDevices";
 //import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Tabs from "@material-ui/core/Tabs";
@@ -21,7 +21,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 const useStyles = makeStyles((theme) => ({
   toolbarMargin: {
     ...theme.mixins.toolbar,
-    marginBottom: "2rem",
+    //marginBottom: "2rem",
     [theme.breakpoints.down("md")]: {
       marginBottom: "1.5rem",
     },
@@ -30,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   appBar: {
+    opacity: "1",
+    //backgroundColor: theme.palette.common.red,
+    backgroundColor: "transparent",
     [theme.breakpoints.down("md")]: {
       height: "4.5rem",
     },
@@ -53,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
   },
   tabContainer: {
     marginLeft: "auto",
+    //textColor: theme.palette.primary.main,
   },
   tab: {
     fontWeight: "bold",
@@ -87,6 +91,7 @@ const useStyles = makeStyles((theme) => ({
   drawerIcon: {
     height: "2rem",
     width: "2rem",
+    color: "white",
   },
   drawer: {
     backgroundColor: theme.palette.primary.main,
@@ -162,8 +167,7 @@ const Navbar = () => {
         value={tabValue}
         onChange={handleChange}
         aria-label="Tabs on Navbar"
-        textColor="secondary"
-        indicatorColor="primary"
+        indicatorColor="secondary"
         className={classes.tabContainer}
         centered
       >
@@ -227,7 +231,11 @@ const Navbar = () => {
   return (
     // <ElevationScroll></ElevationScroll>
     <Fragment>
-      <AppBar position="fixed" color="primary" className={classes.appBar}>
+      <AppBar
+        position="fixed"
+        //color="primary"
+        className={classes.appBar}
+      >
         <div className="skip">
           <a href="#main">Skip to main content</a>
         </div>
@@ -237,9 +245,9 @@ const Navbar = () => {
             aria-label="logo"
             role="img"
           />
-          <Typography color="secondary" className={classes.title}>
+          {/* <Typography color="secondary" className={classes.title}>
             Robert Peng
-          </Typography>
+          </Typography> */}
           {matches ? drawer : tabs}
         </Toolbar>
       </AppBar>

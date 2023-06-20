@@ -15,5 +15,7 @@
 }
 
 a:hover{
-    outline: solid #05445e 2px;
+    /* outline: solid #05445e 2px; */
+    outline: solid #b2ebf2 2px;
+    
 }  

@@ -1,27 +1,30 @@
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import EmailIcon from "@material-ui/icons/Email";
+import YouTubeIcon from "@material-ui/icons/YouTube";
+//import EmailIcon from "@material-ui/icons/Email";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 
 const useStyles = makeStyles((theme) => ({
   footer: {
-    backgroundColor: theme.palette.primary.main,
+    //backgroundColor: theme.palette.primary.main,
+    opacity: "1",
     width: "100%",
     textAlign: "center",
     fontFamily: theme.typography.fontFamily,
     padding: "0.5rem",
+    marginTop: "-9rem",
   },
   copyright: {
-    backgroundColor: theme.palette.primary.dark,
+    //backgroundColor: theme.palette.primary.dark,
     fontSize: "1rem",
     color: "white",
-    border: "1px solid" + theme.palette.secondary.main,
-    borderRadius: "0.5rem",
+    //border: "1px solid" + theme.palette.secondary.main,
+    //borderRadius: "0.5rem",
     width: "8rem",
     marginTop: "0.4rem",
     [theme.breakpoints.down("xs")]: {
@@ -32,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
   iconButton: {
     marginLeft: "0.5rem",
     marginRight: "0.5rem",
+    color: "white",
   },
   button: {
     width: 35,
@@ -69,6 +73,14 @@ const Footer = () => {
         <LinkedInIcon className={classes.button} />
       </IconButton>
       <IconButton
+        aria-label="visit my Youtube channel"
+        className={classes.iconButton}
+        target="_blank"
+        href="https://www.youtube.com/channel/UCcwaPecuT-VFcSPl8axOVIg"
+      >
+        <YouTubeIcon className={classes.button} />
+      </IconButton>
+      {/* <IconButton
         aria-label="email me on a new contact page"
         className={classes.iconButton}
         target="_blank"
@@ -76,7 +88,7 @@ const Footer = () => {
         to="/contact"
       >
         <EmailIcon className={classes.button} />
-      </IconButton>
+      </IconButton> */}
       <Divider />
     </Fragment>
   );
@@ -84,7 +96,7 @@ const Footer = () => {
   return (
     <footer className={classes.footer}>
       {iconButtons}
-      <Typography className={classes.copyright}>© 2021, Robert Peng</Typography>
+      <Typography className={classes.copyright}>© 2023, Robert Peng</Typography>
     </footer>
   );
 };

@@ -16,12 +16,25 @@ export class ComponentToPrint extends React.PureComponent {
 }
 
 const useStyles = makeStyles((theme) => ({
+  containerAll: {
+    //width: "100%",
+    marginBottom: "3rem",
+    backgroundImage: `url(homebg.jpg)`,
+    //height: "110vh",
+    width: "100%",
+    backgroundSize: "100%",
+    opacity: "1",
+    marginTop: "-10rem",
+    paddingTop: "10rem",
+    paddingBottom: "7rem",
+  },
   paper: {
     width: "60%",
     marginTop: "0.1rem",
     marginBottom: "1rem",
     marginLeft: "auto",
     marginRight: "auto",
+    //border: "1px solid red",
     [theme.breakpoints.down("md")]: {
       width: "75%",
     },
@@ -57,8 +70,16 @@ const useStyles = makeStyles((theme) => ({
   heading1: {
     fontSize: "2.5rem",
     marginLeft: "1rem",
-    [theme.breakpoints.down("xs")]: {
+    marginTop: "0.8rem",
+    color: "white",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "2.2rem",
+    },
+    [theme.breakpoints.down("sm")]: {
       fontSize: "2rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1.8rem",
     },
   },
 }));
@@ -66,16 +87,18 @@ const useStyles = makeStyles((theme) => ({
 function Resume() {
   const classes = useStyles();
   useEffect(() => {
-    document.title = "Resume Robert Peng"
-  }, [])
+    document.title = "Resume Robert Peng";
+  }, []);
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
   });
 
   return (
-    <Box id="main" role="main" tabIndex="-1">
-      <Typography variant="h1" className={classes.heading1}>My Resume</Typography>
+    <Box id="main" role="main" tabIndex="-1" className={classes.containerAll}>
+      <Typography variant="h1" className={classes.heading1}>
+        My Resume
+      </Typography>
       <Button
         variant="outlined"
         size="small"

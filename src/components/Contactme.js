@@ -11,6 +11,7 @@ import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import Box from "@material-ui/core/Box";
 
 const serviceID = process.env.REACT_APP_SERVICE_ID;
 const templateID = process.env.REACT_APP_TEMPLATE_ID;
@@ -22,9 +23,22 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
+  containerAll: {
+    //width: "100%",
+    marginBottom: "3rem",
+    backgroundImage: `url(homebg.jpg)`,
+    //height: "110vh",
+    width: "100%",
+    backgroundSize: "100%",
+    opacity: "1",
+    marginTop: "-10rem",
+    paddingTop: "10rem",
+    paddingBottom: "7rem",
+  },
   paper: {
+    //border: "1px solid red",
     width: "50%",
-    marginTop: "1rem",
+    marginTop: "2rem",
     marginBottom: "1rem",
     marginLeft: "auto",
     marginRight: "auto",
@@ -66,8 +80,8 @@ export default function Contactme() {
   const classes = useStyles();
 
   useEffect(() => {
-    document.title = "Contact me Robert Peng"
-  }, [])
+    document.title = "Contact me Robert Peng";
+  }, []);
 
   const initialEmailValues = {
     recruiter: false,
@@ -113,15 +127,24 @@ export default function Contactme() {
       ...emailValues,
       [name]: value,
     });
-    if (name === 'email') {
-      isEmailValid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value) || value==="";
+    if (name === "email") {
+      isEmailValid =
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+        value === "";
       isEmailValid ? setIsEmailError(false) : setIsEmailError(true);
-      isEmailValid ? setEmailErrorMessage('') : setEmailErrorMessage('Invalid email');
+      isEmailValid
+        ? setEmailErrorMessage("")
+        : setEmailErrorMessage("Invalid email");
     }
-    if (name === 'phone') {
-      isPhoneValid = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(value) || value==="";
+    if (name === "phone") {
+      isPhoneValid =
+        /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(
+          value
+        ) || value === "";
       isPhoneValid ? setIsPhoneError(false) : setIsPhoneError(true);
-      isPhoneValid ? setPhoneErrorMessage('') : setPhoneErrorMessage('Invalid phone number');
+      isPhoneValid
+        ? setPhoneErrorMessage("")
+        : setPhoneErrorMessage("Invalid phone number");
     }
   }
 
@@ -187,97 +210,105 @@ export default function Contactme() {
   );
 
   const emailForm = (
-    <Paper className={classes.paper} id="main" role="main">
-      <form className={classes.contactform} onSubmit={sendEmail} autoComplete="on">
-        <Grid container direction="column">
-          <Grid item>
-            <Typography className={classes.emailTitle} variant="h1">Email Robert</Typography>
+    <Box className={classes.containerAll}>
+      <Paper className={classes.paper} id="main" role="main">
+        <form
+          className={classes.contactform}
+          onSubmit={sendEmail}
+          autoComplete="on"
+        >
+          <Grid container direction="column">
+            <Grid item>
+              <Typography className={classes.emailTitle} variant="h1">
+                Email Robert
+              </Typography>
+            </Grid>
+            <Grid item className={classes.checkBoxes}>
+              {checkBoxes}
+            </Grid>
+            <Grid item>
+              <TextField
+                id="subject"
+                label="Subject"
+                variant="outlined"
+                name="subject"
+                value={emailValues.subject}
+                onChange={handleChange}
+                className={classes.emailItem}
+                autoComplete="on"
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                id="name"
+                label="Your Name"
+                variant="outlined"
+                name="name"
+                value={emailValues.name}
+                onChange={handleChange}
+                className={classes.emailItem}
+                autoComplete="on"
+                aria-label="your name"
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                id="email"
+                label="Your Email (Required)"
+                variant="outlined"
+                name="email"
+                required
+                value={emailValues.email}
+                onChange={handleChange}
+                className={classes.emailItem}
+                autoComplete="on"
+                error={isEmailError}
+                helperText={emailErrorMessage}
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                id="phone"
+                label="Your Phone# (Optional)"
+                variant="outlined"
+                name="phone"
+                value={emailValues.phone}
+                onChange={handleChange}
+                className={classes.emailItem}
+                autoComplete="on"
+                error={isPhoneError}
+                helperText={phoneErrorMessage}
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                id="message"
+                label="Message"
+                name="message"
+                multiline
+                rows={3}
+                variant="outlined"
+                value={emailValues.message}
+                onChange={handleChange}
+                className={classes.emailItem}
+                autoComplete="on"
+              />
+            </Grid>
+            <Grid item>
+              <Button
+                type="submit"
+                variant="contained"
+                size="large"
+                color="primary"
+                className={classes.emailButton}
+              >
+                Send Email
+              </Button>
+            </Grid>
           </Grid>
-          <Grid item className={classes.checkBoxes}>
-            {checkBoxes}
-          </Grid>
-          <Grid item>
-            <TextField
-              id="subject"
-              label="Subject"
-              variant="outlined"
-              name="subject"
-              value={emailValues.subject}
-              onChange={handleChange}
-              className={classes.emailItem}
-              autoComplete="on"
-            />
-          </Grid>
-          <Grid item>
-            <TextField
-              id="name"
-              label="Your Name"
-              variant="outlined"
-              name="name"
-              value={emailValues.name}
-              onChange={handleChange}
-              className={classes.emailItem}
-              autoComplete="on"
-              aria-label="your name"
-            />
-          </Grid>
-          <Grid item>
-            <TextField
-              id="email"
-              label="Your Email (Required)"
-              variant="outlined"
-              name="email"
-              required
-              value={emailValues.email}
-              onChange={handleChange}
-              className={classes.emailItem}
-              autoComplete="on"
-              error={isEmailError}
-              helperText={emailErrorMessage}
-            />
-          </Grid>
-          <Grid item>
-            <TextField
-              id="phone"
-              label="Your Phone# (Optional)"
-              variant="outlined"
-              name="phone"
-              value={emailValues.phone}
-              onChange={handleChange}
-              className={classes.emailItem}
-              autoComplete="on"
-              error={isPhoneError}
-              helperText={phoneErrorMessage}
-            />
-          </Grid>
-          <Grid item>
-            <TextField
-              id="message"
-              label="Message"
-              name="message"
-              multiline
-              rows={3}
-              variant="outlined"
-              value={emailValues.message}
-              onChange={handleChange}
-              className={classes.emailItem}
-              autoComplete="on"
-            />
-          </Grid>
-          <Grid item>
-            <Button
-              type="submit"
-              variant="contained"
-              size="large"
-              color="primary"
-              className={classes.emailButton}
-            >
-              Send Email
-            </Button>
-          </Grid>
-        </Grid>
-      </form>
-    </Paper>
+        </form>
+      </Paper>
+    </Box>
   );
   return emailSent === false ? emailForm : <Navigate to="/thankyou" />;
 }

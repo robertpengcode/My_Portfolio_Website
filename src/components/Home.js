@@ -9,31 +9,32 @@ import Avatar from "@material-ui/core/Avatar";
 
 const useStyles = makeStyles((theme) => ({
   paperContainer: {
-    backgroundImage: `url(laptopCoffee.jpg)`,
-    height: "82vh",
+    backgroundImage: `url(homebg.jpg)`,
+    height: "110vh",
     width: "100%",
     backgroundSize: "cover",
-    opacity: "0.75",
+    opacity: "1",
+    marginTop: "-6rem",
   },
   title: {
     ...theme.typography,
     //color: "red",
-    color: theme.palette.common.red,
-    fontSize: "5rem",
+    color: theme.palette.common.white,
+    fontSize: "4rem",
     [theme.breakpoints.down("md")]: {
-      fontSize: "3.5rem",
+      fontSize: "3rem",
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: "2.75rem",
+      fontSize: "2.5rem",
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: "2.5rem",
+      fontSize: "2rem",
     },
   },
   subtitle: {
     ...theme.typography,
     marginTop: "1rem",
-    color: theme.palette.common.red,
+    color: theme.palette.common.white,
     fontSize: "3rem",
     fontWeight: "Bold",
     [theme.breakpoints.down("md")]: {
@@ -47,12 +48,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   itemText: {
-    marginTop: "1.5rem",
+    marginTop: "10rem",
     width: "65%",
     height: "30vh",
     borderRadius: "1rem",
     textAlign: "center",
-    backgroundColor: theme.palette.secondary.background,
+    //backgroundColor: theme.palette.secondary.background,
     padding: "0.5rem",
     [theme.breakpoints.down("md")]: {
       width: "68%",
@@ -81,7 +82,8 @@ const useStyles = makeStyles((theme) => ({
     width: "15rem",
     height: "15rem",
     margin: "auto",
-    marginTop: "1rem",
+    marginTop: "-2rem",
+    marginBottom: "2rem",
     [theme.breakpoints.down("md")]: {
       width: "12rem",
       height: "12rem",
@@ -106,10 +108,10 @@ const Home = () => {
         <Grid container direction="column" alignItems="center" spacing={4}>
           <Grid item className={classes.itemText}>
             <Typography variant="h1" className={classes.title}>
-              [...Now, NavigateToTheNext]
+              Hello! I'm Robert Peng
             </Typography>
             <Typography variant="h2" className={classes.subtitle}>
-              " Coding Bootcamp Grad Ready To Build! "
+              Web 3.0 Developer
             </Typography>
           </Grid>
           <Grid item className={classes.itemAvatar}>
