@@ -18,35 +18,35 @@ const useStyles = makeStyles((theme) => ({
   resumeContainer: {
     marginLeft: "auto",
     marginRight: "auto",
-    marginTop: "0.5rem",
-    marginButtom: "1rem",
-    paddingTop: "0.5rem",
+    marginTop: "0.3rem",
+    marginButtom: "0.5rem",
+    paddingTop: "0.3rem",
     width: "90%",
   },
   headContainer: {
-    marginBottom: "0.2rem",
+    marginBottom: "0rem",
   },
   headTitle: {
     fontWeight: "bold",
-    fontSize: "1.1rem",
+    fontSize: "1rem",
   },
   headItemText: {
-    fontSize: "0.9rem",
+    fontSize: "0.8rem",
     fontFamily: theme.typography.fontFamily,
     color: "Black",
     marginRight: "0.3rem",
   },
   categoryContainer: {
-    marginBottom: "0.3rem",
+    marginBottom: "0rem",
   },
   categoryName: {
-    fontSize: "0.9rem",
+    fontSize: "0.8rem",
     fontFamily: theme.typography.fontFamily,
     color: "Black",
     fontWeight: "bold",
   },
   divider: {
-    marginTop: "0.1rem",
+    marginTop: "0rem",
     //marginBottom: "0.1rem"
   },
   itemName: {

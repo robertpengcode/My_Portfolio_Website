@@ -6,7 +6,7 @@ const resumeInfo = [
         //itemName: "Proficient",
         descriptions: [
           {
-            des: "HTML, CSS, MaterialUI, TailwindCSS, JavaScript, TypeScript, React, Redux, Next.js, Node.js, Express, SQL, PostgreSQL, MongoDB, GraphQL, AWS, Solidity, Remix, Hardhat, Ethers.js, Chainlink, Python, and Excel VBA",
+            des: "HTML, CSS, MaterialUI, TailwindCSS, JavaScript, TypeScript, React, Redux, Next.js, Node.js, Express, SQL, PostgreSQL, MongoDB, GraphQL, AWS, Solidity, Remix, Hardhat, Chai, Ethers.js, Ethereum, Chainlink, Python, and Excel VBA",
           },
         ],
       },
@@ -35,6 +35,9 @@ const resumeInfo = [
           },
           {
             des: "- Modeled subgraphs provided by The Graph to organize transaction data on the blockchain and for updating UI",
+          },
+          {
+            des: "- Utilized Surya and Slither to ensure smart contract functionalities and to detect vulnerabilities for improving security",
           },
           {
             des: "- Built frontend using Next.js, TailwindCSS for styling, Ethers.js and Metamask for interacting with the smart contracts",
@@ -80,7 +83,7 @@ const resumeInfo = [
             des: "- Adopted React Hooks such as useState, useEffect, useContext, and useMemo to create function components",
           },
           {
-            des: "- Integrated Stripe payment processing platform into the checkout process",
+            des: "- Integrated Stripe payment processing platform into the checkout process to accept credit card payments",
           },
           {
             des: "- Implemented technologies such as JWT and bcrypt to build the authentication functionality",
@@ -101,7 +104,7 @@ const resumeInfo = [
             des: "- Developed the backend API routes, frontend redux store, components, and stylings using Material-UI",
           },
           {
-            des: "- Applied React material-table to both display and manipulate data in tables",
+            des: "- Applied React material-table to both display and manipulate data in tables to improve user experience",
           },
         ],
       },
@@ -182,37 +185,44 @@ const resumeInfo = [
       },
     ],
   },
-  // {
-  //   categoryName: "CERTIFICATE & COURSES",
-  //   items: [
-  //     {
-  //       itemName: "Deque University Web Accessibility",
-  //       locationOrTime: "Nov 2021",
-  //       descriptions: [
-  //         {
-  //           des: "- Accessibility Fundamentals - Disabilities, Guidelines, and Laws",
-  //           time: "",
-  //         },
-  //         { des: "- Semantic Structure and Navigation", time: "" },
-  //         {
-  //           des: "- Web Accessibility Testing: Basic Methods and Tools",
-  //           time: "",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       itemName: "AWS Certified Cloud Practitioner",
-  //       locationOrTime: "Aug 2020",
-  //       descriptions: [""],
-  //     },
-  //   ],
-  // },
   {
-    categoryName: "ADDITIONAL SKILLS",
+    categoryName: "CERTIFICATES & LANGUAGE",
     items: [
-      { itemName: "Language - English, Mandarin Chinese", descriptions: [""] },
+      // {
+      //   itemName: "Deque University Web Accessibility",
+      //   locationOrTime: "Nov 2021",
+      //   descriptions: [
+      //     {
+      //       des: "- Accessibility Fundamentals - Disabilities, Guidelines, and Laws",
+      //       time: "",
+      //     },
+      //     { des: "- Semantic Structure and Navigation", time: "" },
+      //     {
+      //       des: "- Web Accessibility Testing: Basic Methods and Tools",
+      //       time: "",
+      //     },
+      //   ],
+      // },
+      {
+        itemName: "Certified Smart Contract Auditor from Blockchain Council",
+        locationOrTime: "Jun 2023",
+        descriptions: [""],
+      },
+      {
+        itemName: "AWS Certified Cloud Practitioner",
+        locationOrTime: "Aug 2020",
+        descriptions: [""],
+      },
+
+      { itemName: "Languages - English, Mandarin Chinese", descriptions: [""] },
     ],
   },
+  // {
+  //   categoryName: "ADDITIONAL SKILLS",
+  //   items: [
+  //     { itemName: "Language - English, Mandarin Chinese", descriptions: [""] },
+  //   ],
+  // },
   // {
   //   categoryName: "INTERESTS",
   //   items: [{ itemName: "Gardening & Hiking", descriptions: [""] }],
